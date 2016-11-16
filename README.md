@@ -4,6 +4,6 @@ Welcome to the Defold examples repo. Here you find a variety of Defold projects 
 
 ## Alien World
 
-A set of awesome pixel assets for an alien world game. Includes environment tiles, animated characters, creatures and UI elements.
+A set of awesome pixel assets created by Luis Zuno. Includes environment tiles, animated characters, creatures and UI elements.
 
 ![Alien World](alien_world/preview.png?raw=true)
