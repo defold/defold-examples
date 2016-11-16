@@ -1,0 +1,15 @@
+function init(self)
+    msg.post(".", "acquire_camera_focus")
+    
+    go.animate(".", "position.x", go.PLAYBACK_LOOP_PINGPONG, 800, go.EASING_INOUTQUAD, 20) 
+end
+
+function update(self, dt)
+	local pos = go.get_position()
+
+	-- Dead simple parallax	
+	go.set("/level/sky", "position.x", pos.x / 1.2)
+	go.set("/level/mountains", "position.x", pos.x / 1.8)
+	go.set("/level/background", "position.x", pos.x / 5)
+
+end

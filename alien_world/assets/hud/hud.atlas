@@ -1,0 +1,12 @@
+images {
+  image: "/assets/hud/energy-bar.png"
+}
+images {
+  image: "/assets/hud/health-bar.png"
+}
+images {
+  image: "/assets/hud/textbox.png"
+}
+margin: 0
+extrude_borders: 0
+inner_padding: 0
