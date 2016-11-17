@@ -1,0 +1,20 @@
+function init(self)
+	self.c = 0
+end
+
+function update(self, dt)	
+	if math.random() > 0.8 and self.c < 150 then
+		local x = math.random(2000)
+		local y = math.random(1000) + 3000
+	
+		factory.create("#blockfactory" .. math.random(4), vmath.vector3(x, y, 0))
+		self.c = self.c + 1
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("trigger_response") and message.enter == true then
+		go.delete(message.other_id)
+		self.c = self.c - 1	
+	end
+end

@@ -1,0 +1,33 @@
+images {
+  image: "/assets/images/car.png"
+}
+images {
+  image: "/assets/images/elementStone014.png"
+}
+images {
+  image: "/assets/images/elementStone016.png"
+}
+images {
+  image: "/assets/images/elementStone045.png"
+}
+images {
+  image: "/assets/images/elementStone024.png"
+}
+images {
+  image: "/assets/images/planet.png"
+}
+images {
+  image: "/assets/images/blue_land.png"
+}
+images {
+  image: "/assets/images/fireball.png"
+}
+images {
+  image: "/assets/images/alienPink_stand.png"
+}
+images {
+  image: "/assets/images/keyGreen.png"
+}
+margin: 0
+extrude_borders: 4
+inner_padding: 0

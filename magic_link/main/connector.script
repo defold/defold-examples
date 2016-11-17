@@ -1,0 +1,4 @@
+function init(self)
+	go.set_scale(0.18)				-- render scaled down
+	go.set(".", "position.z", 1)	-- put on top
+end

@@ -1,0 +1,4 @@
+font: "/fonts/Actor-Regular.ttf"
+material: "/builtins/fonts/font.material"
+size: 30
+outline_alpha: 1.0

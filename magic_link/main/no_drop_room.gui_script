@@ -1,0 +1,21 @@
+function init(self)
+	msg.post("#", "hide")
+	self.t = 0
+end
+
+function update(self, dt)
+	if self.t < 0 then
+		msg.post("#", "hide")
+	else
+		self.t = self.t - dt
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("hide") then
+		msg.post("#", "disable")
+	elseif message_id == hash("show") then
+		self.t = 1
+		msg.post("#", "enable")
+	end
+end

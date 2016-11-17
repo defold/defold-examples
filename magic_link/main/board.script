@@ -1,0 +1,512 @@
+go.property("timer", 0)
+
+local blocksize = 80		-- Distance between block centers
+local edge = 40				-- Left and right edge.
+local bottom_edge = 50		-- Bottom edge.
+local boardwidth = 7		-- Number of columns
+local boardheight = 9		-- Number of rows
+local centeroff = vmath.vector3(8, -8, 0) -- Center offset for connector gfx since there's shadow below in the block img
+local dropamount = 3		-- The number of blocks dropped on a "drop"
+local colors = { hash("orange"), hash("pink"), hash("blue"), hash("yellow"), hash("green") }
+
+--
+-- filter(function, table)
+-- e.g: filter(is_even, {1,2,3,4}) -> {2,4}
+--
+local function filter(func, tbl)
+	local new = {}
+    for i, v in pairs(tbl) do
+        if func(v) then
+	    	new[i] = v
+        end
+    end
+    return new
+end
+
+--
+-- Build a list of blocks in 1 dimension for easy filtering
+--
+local function build_blocklist(self)
+	self.blocks = {}
+	for x, l in pairs(self.board) do
+		for y, b in pairs(self.board[x]) do
+			table.insert(self.blocks, { id = b.id, color = b.color, x = b.x, y = b.y })
+		end
+	end
+end
+
+--
+-- Build list of all current magic blocks.
+--
+local function magic_blocks(self)
+	local magic = {}
+	for x = 0,boardwidth - 1 do
+		for y = 0,boardheight - 1 do
+			if self.board[x][y] ~= nil and self.board[x][y].color == hash("magic") then
+				table.insert(magic, self.board[x][y])
+			end
+		end
+	end
+	return magic
+end
+
+--
+-- Filter out adjacent magic blocks
+--
+local function adjacent_magic_blocks(blocks, block)
+	return filter(function (e)
+		return (block.x == e.x and math.abs(block.y - e.y) == 1) or
+			(block.y == e.y and math.abs(block.x - e.x) == 1)
+	end, blocks)
+end
+
+--
+-- Spread region to neighbors
+--
+local function mark_neighbors(blocks, block, region)
+	local neighbors = adjacent_magic_blocks(blocks, block)
+	for i, m in pairs(neighbors) do
+		if m.region == nil then
+			m.region = region
+			mark_neighbors(blocks, m, region)
+		end
+	end
+end
+
+--
+-- Mark all magic block regions
+--
+local function mark_magic_regions(self)
+	local m_blocks = magic_blocks(self)
+	-- 1. Clear all region marks and count neighbors
+	for i, m in pairs(m_blocks) do
+		m.region = nil
+		local n = 0
+		for _ in pairs(adjacent_magic_blocks(m_blocks, m)) do n = n + 1 end
+		m.neighbors = n
+	end
+	
+	-- 2. Assign regions and spread them
+	local region = 1
+	for i, m in pairs(m_blocks) do
+		if m.region == nil then
+			m.region = region
+			mark_neighbors(m_blocks, m, region)
+			region = region + 1
+		end
+	end	
+	return m_blocks
+end
+
+--
+-- Count the number of connected regions among the magic blocks.
+--
+local function count_magic_regions(blocks)
+	local maxr = 0
+	for i, m in pairs(blocks) do
+		if m.region > maxr then
+			maxr = m.region
+		end		
+	end
+	return maxr
+end
+
+--
+-- Shut off lights on all listed magic blocks
+--
+local function shutdown_lined_up_magic(self)
+	for i, m in ipairs(self.lined_up_magic) do
+		msg.post(m.id, "lights_off")
+	end
+end
+
+--
+-- Set hightlight for all magic blocks
+--
+local function highlight_magic(blocks)
+	for i, m in pairs(blocks) do
+		if m.neighbors > 0 then
+			msg.post(m.id, "lights_on")
+		else
+			msg.post(m.id, "lights_off")		
+		end
+	end
+end
+
+--
+-- INIT
+--
+function init(self)
+	self.board = {}				-- Contains the board structure
+	self.blocks = {}			-- List of all blocks. Used for easy filtering on selection.
+	
+	self.chain = {}				-- Current selection chain
+	self.connectors = {}		-- Connector elements to mark the selection chain
+	self.num_magic = 3			-- Number of magic blocks on the board
+	
+	self.drops = 1				-- Number of drops you have available
+	
+	self.magic_blocks = {}		-- Magic blocks that are lined up
+	
+	self.dragging = false		-- Drag touch input	
+end
+
+-- 
+-- Clear the board
+--
+local function clear_board(self)
+	for y = 0,boardheight - 1 do
+		for x = 0,boardwidth - 1 do
+			if self.board[x][y] ~= nil then
+				go.delete(self.board[x][y].id)
+				self.board[x][y] = nil
+			end
+		end
+	end
+end
+
+local function build_board(self)
+	math.randomseed(os.time())
+	local pos = vmath.vector3()
+	local c
+	local x = 0
+	local y = 0
+	for x = 0,boardwidth-1 do
+		pos.x = edge + blocksize / 2 + blocksize * x
+		self.board[x] = {}
+		for y = 0,boardheight-1 do
+			pos.y = bottom_edge + blocksize / 2 + blocksize * y
+			-- Calc z
+			pos.z = x * -0.1 + y * 0.01
+			c = colors[math.random(#colors)]	-- Pick a random color
+			local id = factory.create("#blockfactory", pos, null, { color = c })
+			self.board[x][y] = { id = id, color = c,  x = x, y = y }
+		end
+	end
+	
+	-- Distribute magic blocks.
+	local rand_x = 0
+	local rand_y
+	for y = 0, boardheight - 1, boardheight / self.num_magic do
+		local set = false
+		while not set do
+			rand_y = math.random(math.floor(y), math.min(boardheight - 1, math.floor(y + boardheight / self.num_magic)))
+			rand_x = math.random(0, boardwidth - 1)
+			if self.board[rand_x][rand_y].color ~= hash("magic") then
+				msg.post(self.board[rand_x][rand_y].id, "make_magic")
+				self.board[rand_x][rand_y].color = hash("magic")
+				set = true
+			end
+		end
+	end
+	
+	-- Build 1d list that we can easily filter.
+	build_blocklist(self)
+	
+	local magic_blocks = mark_magic_regions(self)
+	if count_magic_regions(magic_blocks) == 1 then
+		-- Win from start. Make new board.
+		clear_board(self)
+		build_board(self)
+	end
+	highlight_magic(magic_blocks)
+end
+
+--
+-- Returns a list of neighbor blocks of the same color as the
+-- block on x, y
+--
+local function same_color_neighbors(self, x, y)
+	local f = function (v)
+		return 	(v.id ~= self.board[x][y].id) and
+				(v.x == x or v.x == x - 1 or v.x == x + 1) and
+				(v.y == y or v.y == y - 1 or v.y == y + 1) and
+				(v.color == self.board[x][y].color)
+	end
+	return filter(f, self.blocks)
+end
+
+--
+-- Remove the currently selected block-chain
+--
+local function remove_chain(self)
+	-- Delete all chained blocks
+	for i, c in ipairs(self.chain) do
+		self.board[c.x][c.y] = hash("removing")
+		go.delete(c.id)
+	end
+	self.chain = {}
+end
+
+--
+-- Apply the shifting logic to magic blocks. Only slide to positions
+-- marked for removal with hash("removing")
+--
+local function slide_magic_blocks(self)
+	-- Slide all magic blocks to the side that should slide first.
+	-- This works best going row by row!
+	local row_m
+	for y = 0,boardheight - 1 do
+		row_m = {}
+		-- Build list of magic blocks on this row.
+		for x = 0,boardwidth - 1 do
+			if self.board[x][y] ~= nil and self.board[x][y] ~= hash("removing") and self.board[x][y].color == hash("magic") then
+				table.insert(row_m, self.board[x][y])
+			end
+		end
+		
+		local mc = #row_m + 1
+		-- Go through list, slide and remove if possible. Reiterate until the list does not shrink.
+		while #row_m < mc do
+			mc = #row_m
+			for i, m in pairs(row_m) do
+				local x = m.x
+				if y > 0 and self.board[x][y-1] == hash("removing") then
+					-- Hole below, do nothing.
+					row_m[i] = nil					
+				elseif x > 0 and self.board[x-1][y] == hash("removing") then
+					-- Hole to the left! Slide magic block there
+					self.board[x-1][y] = self.board[x][y]
+					self.board[x-1][y].x = x - 1
+					go.animate(self.board[x][y].id, "position.x", go.PLAYBACK_ONCE_FORWARD, edge + blocksize / 2 + blocksize * (x - 1), go.EASING_OUTBOUNCE, 0.3)
+					-- Calc new z
+					go.set(self.board[x][y].id, "position.z", (x - 1) * -0.1 + y * 0.01)
+					self.board[x][y] = hash("removing") -- Will be nilled later
+					row_m[i] = nil
+				elseif x < boardwidth - 1 and self.board[x + 1][y] == hash("removing") then
+					-- Hole to the right. Slide magic block there
+					self.board[x+1][y] = self.board[x][y]
+					self.board[x+1][y].x = x + 1
+					go.animate(self.board[x+1][y].id, "position.x", go.PLAYBACK_ONCE_FORWARD, edge + blocksize / 2 + blocksize * (x + 1), go.EASING_OUTBOUNCE, 0.3)
+					-- Calc new z
+					go.set(self.board[x+1][y].id, "position.z", (x + 1) * -0.1 + y * 0.01)
+					self.board[x][y] = hash("removing") -- Will be nilled later
+					row_m[i] = nil
+				end
+			end
+		end
+	end
+end
+
+-- 
+-- Set removed blocks to nil
+--
+local function nilremoved(self)
+	for y = 0,boardheight - 1 do
+		for x = 0,boardwidth - 1 do
+			if self.board[x][y] == hash("removing") then
+				self.board[x][y] = nil
+			end
+		end
+	end
+end
+
+--
+-- Apply shift-down logic to all blocks.
+--
+local function slide_board(self)	
+	-- Slide all remaining blocks down into blank spots.
+	-- Going column by column makes this easy.
+	local dy = 0
+	local pos = vmath.vector3()
+	for x = 0,boardwidth - 1 do
+		dy = 0
+		for y = 0,boardheight - 1 do
+			if self.board[x][y] ~= nil then
+				if dy > 0 then
+					-- Move down dy steps
+					self.board[x][y - dy] = self.board[x][y]
+					self.board[x][y] = nil
+					-- Calc new position
+					self.board[x][y - dy].y = self.board[x][y - dy].y - dy
+					go.animate(self.board[x][y-dy].id, "position.y", go.PLAYBACK_ONCE_FORWARD, bottom_edge + blocksize / 2 + blocksize * (y - dy), go.EASING_OUTBOUNCE, 0.3)
+					-- Calc new z
+					go.set(self.board[x][y-dy].id, "position.z", x * -0.1 + (y-dy) * 0.01)
+				end
+			else
+				dy = dy + 1
+			end
+		end
+	end
+	-- blocklist needs updating
+	build_blocklist(self)
+end
+
+--
+-- Does the block exist in the list of blocks?
+--
+local function in_blocklist(blocks, block)
+	for i, b in pairs(blocks) do
+		if b.id == block then
+			return true
+		end
+	end
+	return false
+end
+
+-- 
+-- Find spots for a drop.
+--
+local function dropspots(self)
+	local spots = {}
+	for x = 0, boardwidth - 1 do
+		for y = 0, boardheight - 1 do
+			if self.board[x][y] == nil then
+				table.insert(spots, { x = x, y = y })
+				break
+			end
+		end
+	end
+	-- If more than dropamount, randomly remove a slot until dropamount
+	for c = 1, #spots - dropamount do
+		table.remove(spots, math.random(#spots))
+	end	
+	return spots
+end
+
+--
+-- Perform the drop
+--
+local function drop(self, spots)
+	for i, s in pairs(spots) do
+		local pos = vmath.vector3()
+		pos.x = edge + blocksize / 2 + blocksize * s.x
+		pos.y = 1000
+		c = colors[math.random(#colors)]	-- Pick a random color
+		local id = factory.create("#blockfactory", pos, null, { color = c })
+		go.animate(id, "position.y", go.PLAYBACK_ONCE_FORWARD, bottom_edge + blocksize / 2 + blocksize * s.y, go.EASING_OUTBOUNCE, 0.5)
+		-- Calc new z
+		go.set(id, "position.z", s.x * -0.1 + s.y * 0.01)
+
+		self.board[s.x][s.y] = { id = id, color = c,  x = s.x, y = s.y }		
+	end
+	
+	-- Rebuild blocklist
+	build_blocklist(self)
+end
+
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("start_level") then
+		self.num_magic = message.difficulty + 1
+		build_board(self)
+
+		msg.post("#gui", "set_drop_counter", { drops = self.drops } )
+		
+		msg.post("present_level#gui", "show", { level = message.difficulty } )
+		-- Wait some...
+		go.animate("#", "timer", go.PLAYBACK_ONCE_FORWARD, 1, go.EASING_LINEAR, 2, 0, function ()
+			msg.post("present_level#gui", "hide")
+			msg.post(".", "acquire_input_focus")	
+		end)		
+	elseif message_id == hash("restart_level") then
+		clear_board(self)
+		build_board(self)
+		self.drops = 1
+		msg.post("#gui", "set_drop_counter", { drops = self.drops } )
+		msg.post(".", "acquire_input_focus")
+	elseif message_id == hash("level_completed") then
+		-- turn off input
+		msg.post(".", "release_input_focus")
+		
+		-- Animate the magic!
+		for i, m in ipairs(magic_blocks(self)) do
+			go.set_scale(0.17, m.id)
+			go.animate(m.id, "scale", go.PLAYBACK_LOOP_PINGPONG, 0.19, go.EASING_INSINE, 0.5, 0)
+		end
+		
+		-- Show completion screen
+		msg.post("level_complete#gui", "show")		
+	elseif message_id == hash("next_level") then
+		clear_board(self)
+		self.drops = self.drops + 1
+		-- Difficulty level is number of magic blocks - 1
+		msg.post("#", "start_level", { difficulty = self.num_magic })
+	elseif message_id == hash("drop") then
+		s = dropspots(self)
+		if #s == 0 then
+			-- Can't perform drop
+			msg.post("no_drop_room#gui", "show")
+		elseif self.drops > 0 then
+			-- Do the drop
+			drop(self, s)
+			self.drops = self.drops - 1
+			msg.post("#gui", "set_drop_counter", { drops = self.drops } )			
+		end
+	end
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("touch") and action.value == 1 then
+		-- What block was touched or dragged over?
+		local x = math.floor((action.x - edge) / blocksize)
+		local y = math.floor((action.y - edge) / blocksize)
+		
+		if x < 0 or x >= boardwidth or y < 0 or y >= boardheight or self.board[x][y] == nil then
+			-- outside board.
+			return
+		end
+		
+		-- If trying to manipulate magic blocks, ignore.
+		if self.board[x][y].color == hash("magic") then
+			return
+		end
+		
+		if action.pressed then
+			self.neighbors = same_color_neighbors(self, x, y)
+			self.chain = {}
+			table.insert(self.chain, self.board[x][y])
+
+			-- Mark block.
+			p = go.get_position(self.board[x][y].id)
+			local id = factory.create("#connectorfactory", p + centeroff)
+			table.insert(self.connectors, id)			
+
+			self.dragging = true
+		elseif self.dragging then
+			-- then drag
+			if in_blocklist(self.neighbors, self.board[x][y].id) and not in_blocklist(self.chain, self.board[x][y].id) then
+				-- dragging over a same-colored neighbor
+				table.insert(self.chain, self.board[x][y])
+				self.neighbors = same_color_neighbors(self, x, y)
+
+				-- Mark block.
+				p = go.get_position(self.board[x][y].id)
+				local id = factory.create("#connectorfactory", p + centeroff)
+				table.insert(self.connectors, id)			
+			end
+		end
+	elseif action_id == hash("touch") and action.released then
+		-- Player released touch.
+		self.dragging = false
+
+		if #self.chain > 1 then
+			-- There is a chain of blocks. Remove it from board and refill board.
+			remove_chain(self)
+			slide_magic_blocks(self)
+			nilremoved(self)
+			-- Slide remaining blocks down.
+			slide_board(self)
+
+			local magic_blocks = mark_magic_regions(self)
+			-- Highlight adjacent magic blocks.
+			if count_magic_regions(magic_blocks) == 1 then
+				-- Win!
+				msg.post("#", "level_completed")
+			end
+			highlight_magic(magic_blocks)
+		end
+		-- Empty chain of connector graphics.
+		for i, c in ipairs(self.connectors) do
+			go.delete(c)
+		end
+		self.connectors = {}
+	end
+end
+
+function on_reload(self)
+--	msg.post("#", "level_completed")
+	
+    -- Add reload-handling code here
+    -- Remove this function if not needed
+end

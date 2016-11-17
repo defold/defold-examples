@@ -1,0 +1,13 @@
+function init(self)
+	msg.post("#", "hide")
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("hide") then
+		msg.post("#", "disable")
+	elseif message_id == hash("show") then
+		local n = gui.get_node("message")
+		gui.set_text(n, "Level " .. message.level)
+		msg.post("#", "enable")
+	end
+end

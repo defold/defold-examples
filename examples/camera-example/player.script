@@ -1,0 +1,69 @@
+-- Constants
+local max_velocity = 2.5
+local turn_speed = 0.3                           -- Slerp factor
+local max_steer_angle_left = vmath.quat_rotation_z(math.pi / 6)     -- 30 degrees max left
+local max_steer_angle_right = vmath.quat_rotation_z(-math.pi / 6)   -- -30 degrees max right
+local wheels_vector = vmath.vector3(0, 11, 0)               -- Vector from center of back and front wheel pairs
+
+function init(self)
+	-- Tell input controls to direct messages here
+    msg.post("main:/controls#gui", "aquire_controls")
+
+    -- Keep track of how we're steering and our direction
+    self.steer_angle = vmath.quat()
+    self.direction = vmath.quat_rotation_z(0)
+
+    -- Velocity and acceleration are car relative (not rotated)
+    self.velocity = vmath.vector3()
+    self.acceleration = vmath.vector3()
+
+	-- Store current position and set target pos to the same since wanna start
+	-- at a stand-still.
+	self.pos = go.get_world_position()
+	self.target = self.pos
+end
+
+function update(self, dt)
+    -- Calculate new velocity based on current acceleration
+    if vmath.length(self.velocity) < max_velocity then
+	    self.velocity = self.velocity + self.acceleration * dt
+	end
+	
+    -- Calculate the new positions of front and back wheels
+    local front_vel = vmath.rotate(self.steer_angle, self.velocity)
+    local new_front_pos = vmath.rotate(self.direction, wheels_vector + front_vel)
+    local new_back_pos = vmath.rotate(self.direction, self.velocity)
+
+    -- Calculate the car's new direction
+    local new_dir = vmath.normalize(new_front_pos - new_back_pos)
+    self.direction = vmath.quat_rotation_z(math.atan2(new_dir.y, new_dir.x) - math.pi / 2)
+
+    -- Update position based on current velocity and direction
+    local pos = go.get_position()
+    pos = pos + vmath.rotate(self.direction, self.velocity)
+    go.set_position(pos)
+
+	-- Send our position to the camera so it can chase.
+	msg.post("/camera", "look_at", { position = pos })
+
+    -- Set the game object's rotation to the direction
+    go.set_rotation(self.direction)
+    
+    self.steer_angle = vmath.slerp(0.1, self.steer_angle, vmath.quat())
+
+    self.acceleration.y = 0
+end
+
+function on_message(self, message_id, message, sender)
+    if message_id == hash("left") then
+        -- Interpolate the steering angle.
+        self.steer_angle = vmath.slerp(turn_speed, self.steer_angle, max_steer_angle_left)
+    elseif message_id == hash("right") then
+        -- Interpolate the steering angle.
+        self.steer_angle = vmath.slerp(turn_speed, self.steer_angle, max_steer_angle_right)
+    elseif message_id == hash("up") then
+        self.acceleration.y = 2
+    elseif message_id == hash("down") then
+        self.acceleration.y = -2
+    end
+end

@@ -1,0 +1,30 @@
+images {
+  image: "/assets/images/clouds1.png"
+}
+images {
+  image: "/assets/images/clouds2.png"
+}
+images {
+  image: "/assets/images/hills1.png"
+}
+images {
+  image: "/assets/images/mountain1.png"
+}
+images {
+  image: "/assets/images/mountain2.png"
+}
+images {
+  image: "/assets/images/mountain3.png"
+}
+images {
+  image: "/assets/images/sky.png"
+}
+images {
+  image: "/assets/images/sun.png"
+}
+images {
+  image: "/assets/images/ground.png"
+}
+margin: 0
+extrude_borders: 2
+inner_padding: 0

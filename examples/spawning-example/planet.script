@@ -1,0 +1,63 @@
+function init(self)
+	-- Hide on-screen controls
+	msg.post("main:/controls#gui", "hide_controls")
+
+	msg.post("#", "spawn")
+	go.animate(".", "euler.z", go.PLAYBACK_LOOP_BACKWARD, 360, go.EASING_LINEAR, 20)
+	
+	self.all_spawned = {}
+	self.astronauts = {}
+	self.timer = 0
+	self.switch = true
+end
+
+function update(self, dt)
+	self.timer = self.timer + dt
+	if self.timer > 1 then
+		self.timer = 0
+		if self.switch then
+			msg.post("#", "set_tint", { tint = vmath.vector4(1.0, 1.0, 1.0, 1.0) })
+		else
+			msg.post("#", "set_tint", { tint = vmath.vector4(0.5, 0.5, 0.5, 1.0) })		
+		end
+		self.switch = not self.switch
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("spawn") then
+		-- Number of astronauts
+		local n = 12
+		for i = 1,n do
+			-- Figure out where to spawn, what rotation and scale
+			local a = (2 * math.pi / n) * i
+			local dx = math.sin(a) * 185
+			local dy = math.cos(a) * 185
+			local pos = go.get_position()
+			pos.x = pos.x + dx
+			pos.y = pos.y + dy
+			local rot = vmath.quat_rotation_z(-a)
+			local scale = 0.4 + (0.03 * i)
+			-- Spawn an astronaut
+			local a = collectionfactory.create("#factory", pos, rot, {}, scale)
+	        -- Child it under planet
+            msg.post(a[hash("/astronaut")], "set_parent", { parent_id = go.get_id() })
+            -- Store the astronaut's root object for easy access.
+            table.insert(self.astronauts, a[hash("/astronaut")])
+            -- Store everything we've spawned so we can delete it.
+            table.insert(self.all_spawned, a)
+		end
+	elseif message_id == hash("set_tint") then
+		for i, a in pairs(self.astronauts) do
+			-- Build an URL to the astronaut sprite
+			local u = msg.url()
+			u.path = a
+			u.fragment = hash("sprite")
+			sprite.set_constant(u, "tint", message.tint)
+		end		
+	elseif message_id == hash("delete_all") then
+		for i, s in pairs(self.all_spawned) do
+			go.delete_all(s)
+		end
+	end
+end

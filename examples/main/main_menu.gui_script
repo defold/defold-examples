@@ -1,0 +1,68 @@
+function init(self)
+	msg.post("#", "acquire_input_focus")
+
+	self.buttons =  { "camera", "collision", "gui", "material", "spawning" }
+
+	self.loaded_proxy = nil	
+
+	-- On-screen controls off
+	msg.post("main:/controls#gui", "off")
+end
+
+function on_message(self, message_id, message, sender)
+    if message_id == hash("load_example") then
+	   	local proxy = message.proxy
+    	msg.post(proxy, "load")
+    elseif message_id == hash("proxy_loaded") then
+        -- The collection has loaded and it's time to enable it.
+        msg.post(sender, "enable")
+		self.pushed_button = nil		
+		-- Let the loaded collection take over.
+    	msg.post("#", "release_input_focus")
+    	-- Disable the main menu.
+		msg.post("main_menu", "disable")
+
+		-- On-screen controls on
+		msg.post("main:/controls#gui", "on")
+
+		self.loaded_proxy = sender
+	elseif message_id == hash("back") then
+		-- Back to the main menu
+		msg.post(self.loaded_proxy, "disable")
+		msg.post(self.loaded_proxy, "final")
+		msg.post(self.loaded_proxy, "unload")
+
+		-- Reset things in the render script
+		msg.post("@render:", "clear_color", { color = vmath.vector4(0, 0, 0, 1) } )
+		msg.post("@render:", "no_camera")
+		msg.post("@render:", "set_render_update", { update = hash("2d") })
+		
+    	-- Enable the main menu.
+		msg.post("main_menu", "enable")
+
+		-- On-screen controls off
+		msg.post("main:/controls#gui", "off")
+
+		-- Take back input.
+    	msg.post("#", "acquire_input_focus")
+    end
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("click") and action.pressed == true then
+		local x = action.x
+		local y = action.y
+		
+		for i, n in ipairs(self.buttons) do
+			if gui.pick_node(gui.get_node(n .. "/button" ), x, y) then
+				self.pushed_button = n
+				msg.post("/sound#click", "play_sound")
+				msg.post("/loader#proxy-" .. n , "load")
+			end
+		end
+	end	
+end
+
+function on_reload(self)
+	msg.post(".", "back")
+end

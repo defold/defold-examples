@@ -1,0 +1,29 @@
+go.property("orbit_size", 1.0)
+
+function init(self)
+	-- Start fireball fly loop at random point
+	self.t = math.random(math.pi * self.orbit_size)
+	
+	-- Spawn 2 fireballs
+	self.fireball1 = factory.create("#fireball_factory", null, null, {}, vmath.vector3(0.6, 0.6, 0.6))
+	self.fireball2 = factory.create("#fireball_factory", null, null, {}, vmath.vector3(0.6, 0.6, 0.6))
+	
+	-- Child them to astronaut
+	msg.post(self.fireball1, "set_parent", { parent_id = go.get_id(), keep_world_transform = 0 })
+	msg.post(self.fireball2, "set_parent", { parent_id = go.get_id(), keep_world_transform = 0 })
+end
+
+-- Use the update loop to orbit the fireballs around astronaut.
+function update(self, dt)
+	self.t = self.t + dt
+
+	-- Rotate fireballs around astronaut
+	local x = math.sin(self.t * 4) * 60
+	local y = math.cos(self.t * 4.4) * 60
+	local y2 = math.cos(self.t * 4.2) * 20
+	
+	local np = vmath.vector3(x, y, -0.5)
+	local np2 = vmath.vector3(0-x, 0-y2, 0.5)
+	go.set_position(np, self.fireball1)
+	go.set_position(np2, self.fireball2)
+end

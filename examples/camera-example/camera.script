@@ -1,0 +1,28 @@
+function init(self)
+	msg.post("#camera", "acquire_camera_focus")
+	
+	-- Tell render script to use view and projection of camera
+	msg.post("@render:", "set_cameratype_viewproj")
+
+	-- Show on-screen controls
+	msg.post("main:/controls#gui", "show_controls")
+
+	-- Store current position and set target pos to the same since wanna start
+	-- at a stand-still.
+	self.pos = go.get_world_position()
+	self.look_at = self.pos
+end
+
+function update(self, dt)
+	-- Calculate a new position based on current pos interpolated towards current
+	-- target position.
+	self.pos = vmath.lerp(0.03, self.pos, self.look_at)
+	self.pos.z = 500
+	go.set_position(self.pos)
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("look_at") then	
+		self.look_at = message.position
+	end
+end

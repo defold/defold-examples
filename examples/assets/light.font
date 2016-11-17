@@ -1,0 +1,4 @@
+font: "/assets/SourceSansPro-Light.otf"
+material: "/builtins/fonts/font-df.material"
+size: 32
+output_format: TYPE_DISTANCE_FIELD

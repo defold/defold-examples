@@ -1,0 +1,10 @@
+image: "/assets/images/tiles_road.png"
+tile_width: 64
+tile_height: 64
+tile_margin: 0
+tile_spacing: 0
+collision: ""
+material_tag: "tile"
+collision_groups: "world"
+extrude_borders: 2
+inner_padding: 0

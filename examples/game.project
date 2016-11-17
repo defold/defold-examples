@@ -1,0 +1,35 @@
+[project]
+title = Defold examples
+version = 0.1
+dependencies = 
+
+[bootstrap]
+main_collection = /main/main.collectionc
+render = /render/example.renderc
+
+[input]
+game_binding = /input/game.input_bindingc
+
+[display]
+width = 1024
+height = 768
+
+[physics]
+scale = 0.02
+debug = 0
+gravity_y = -100
+max_collisions = 1024
+max_contacts = 8192
+
+[script]
+shared_state = 1
+
+[factory]
+max_count = 1024
+
+[sprite]
+max_count = 1024
+
+[library]
+include_dirs = 
+

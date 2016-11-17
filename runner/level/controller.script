@@ -1,0 +1,58 @@
+go.property("speed", 6)
+
+local grid = 460
+local platform_heights = { 100, 200, 350 }
+local coins = 3
+
+function init(self)
+	msg.post("ground/controller#script", "set_speed", { speed = self.speed })
+	self.gridw = 0
+	self.spawns = {}
+	
+	self.score = 0
+end
+
+function update(self, dt)
+	self.gridw = self.gridw + self.speed
+		
+	if self.gridw >= grid then
+		self.gridw = 0
+
+		-- Maybe spawn a platform at random height
+		if math.random() > 0.2 then
+			local h = platform_heights[math.random(#platform_heights)]
+			local f = "#platform_factory"
+			local coins = coins
+			if math.random() > 0.5 then
+				f = "#platform_long_factory"
+				coins = coins * 2
+			end
+			
+			local p = factory.create(f, vmath.vector3(1600, h, 0), nil, {}, 0.6)
+			msg.post(p, "set_speed", { speed = self.speed })
+			msg.post(p, "create_coins", { coins = coins })
+			table.insert(self.spawns, p)
+		end
+	end
+end
+
+function on_message(self, message_id, message, sender)
+    if message_id == hash("reset") then
+	    msg.post("hero#script", "reset")
+	    -- Delete all platforms
+		for i,p in ipairs(self.spawns) do
+			go.delete(p)
+    	end
+		self.spawns = {}
+    elseif message_id == hash("delete_spawn") then
+		for i,p in ipairs(self.spawns) do
+			if p == message.id then
+				table.remove(self.spawns, i)
+				go.delete(p)
+			end
+    	end    	
+    elseif message_id == hash("score_coin") then
+    	self.score = self.score + 50
+    	msg.post("hud", "set_score", { score = self.score })
+    end
+end

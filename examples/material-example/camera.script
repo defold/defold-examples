@@ -1,0 +1,13 @@
+function init(self)
+	msg.post("#camera", "acquire_camera_focus")
+	
+	-- Tell render script to use view and projection of camera
+	msg.post("@render:", "set_cameratype_viewproj")
+
+	-- Tell render script to do the 3d rendering
+	msg.post("@render:", "set_render_update", { update = hash("3d") })
+	
+	-- Hide on-screen controls
+	msg.post("main:/controls#gui", "hide_controls")	
+end
+

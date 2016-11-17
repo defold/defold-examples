@@ -1,0 +1,99 @@
+images {
+  image: "/hero/images/ArmL01.png"
+}
+images {
+  image: "/hero/images/ArmL02.png"
+}
+images {
+  image: "/hero/images/ArmL03.png"
+}
+images {
+  image: "/hero/images/ArmR01.png"
+}
+images {
+  image: "/hero/images/ArmR02.png"
+}
+images {
+  image: "/hero/images/ArmR03.png"
+}
+images {
+  image: "/hero/images/BodyA01.png"
+}
+images {
+  image: "/hero/images/BodyA02.png"
+}
+images {
+  image: "/hero/images/BodyB01.png"
+}
+images {
+  image: "/hero/images/BodyB02.png"
+}
+images {
+  image: "/hero/images/empty.png"
+}
+images {
+  image: "/hero/images/Eye01.png"
+}
+images {
+  image: "/hero/images/Head01.png"
+}
+images {
+  image: "/hero/images/Head02.png"
+}
+images {
+  image: "/hero/images/Head02B.png"
+}
+images {
+  image: "/hero/images/Head03.png"
+}
+images {
+  image: "/hero/images/Head03B.png"
+}
+images {
+  image: "/hero/images/LegB01.png"
+}
+images {
+  image: "/hero/images/LegB02.png"
+}
+images {
+  image: "/hero/images/LegB03.png"
+}
+images {
+  image: "/hero/images/LegB04.png"
+}
+images {
+  image: "/hero/images/LegL00.png"
+}
+images {
+  image: "/hero/images/LegLA01.png"
+}
+images {
+  image: "/hero/images/LegLA02.png"
+}
+images {
+  image: "/hero/images/LegLA03.png"
+}
+images {
+  image: "/hero/images/LegLA04.png"
+}
+images {
+  image: "/hero/images/LegR00.png"
+}
+images {
+  image: "/hero/images/LegRA01.png"
+}
+images {
+  image: "/hero/images/LegRA02.png"
+}
+images {
+  image: "/hero/images/LegRA03.png"
+}
+images {
+  image: "/hero/images/LegRA04.png"
+}
+images {
+  image: "/hero/images/ThighL.png"
+}
+images {
+  image: "/hero/images/ThighR.png"
+}

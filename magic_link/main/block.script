@@ -1,0 +1,53 @@
+go.property("color", hash("none"))
+
+function init(self)
+	go.set_scale(0.18)		-- render scaled down
+
+	self.fx1 = nil
+	self.fx2 = nil
+	msg.post("#cover", "disable")
+
+	if self.color ~= nil then
+		msg.post("#sprite", "play_animation", { id = self.color })
+	else
+		msg.post("#sprite", "disable")
+	end	
+end
+
+function final(self)
+	if self.fx1 ~= nil then
+		go.delete(self.fx1)
+	end
+	
+	if self.fx2 ~= nil then
+		go.delete(self.fx2)
+	end
+
+	if self.cover ~= nil then
+		go.delete(self.cover)
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("make_magic") then
+		self.color = hash("magic")
+		msg.post("#cover", "enable")
+		msg.post("#sprite", "enable")
+		msg.post("#sprite", "play_animation", { id = hash("magic-sphere_layer1") })	
+		
+		self.fx1 = factory.create("#fxfactory", vmath.vector3(0, 0, 0), nil, { direction = hash("left") })
+		self.fx2 = factory.create("#fxfactory", vmath.vector3(0, 0, 0), nil, { direction = hash("right") })
+
+		msg.post(self.fx1, "set_parent", { parent_id = go.get_id(), keep_world_transform = 0 })
+		msg.post(self.fx2, "set_parent", { parent_id = go.get_id(), keep_world_transform = 0 })
+		
+		go.set(self.fx1, "position.z", 0.01)
+		go.set(self.fx1, "scale", 1)
+		go.set(self.fx2, "position.z", 0.02)
+		go.set(self.fx2, "scale", 1)
+	elseif message_id == hash("lights_on") or message_id == hash("lights_off") then
+		msg.post(self.fx1, message_id)
+		msg.post(self.fx2, message_id)
+	end
+end
+

@@ -1,0 +1,85 @@
+
+local text_nodes = {"score", "score_text", "life1", "life2", "life3", "life4", }
+
+function init(self)
+	reset_lives(self)
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("set_score") then
+		local s = gui.get_node("score")
+		gui.set_text(s, message.score)
+				
+	elseif message_id == hash("show") then
+		msg.post(".", "enable")
+		show(self)
+
+	elseif message_id == hash("hide") then
+		hide(self, true)
+		
+	elseif message_id == hash("show_game_over") then
+		show_game_over(self)
+	
+	elseif message_id == hash("set_lives") then
+		set_lives(self, message.lives)
+	end
+	
+end
+
+function show(self)
+	reset_lives(self)
+	node = gui.get_node("game_over")
+	gui.set_enabled(node, false)
+	for i, id in pairs(text_nodes) do
+		node = gui.get_node(id)
+		local c = gui.get_color(node)
+		gui.set_color(node, vmath.vector4(c.x, c.y, c.z, 0))
+		c.w = 1.0
+		gui.animate(node, gui.PROP_COLOR, c, gui.EASING_INOUTSINE, 0.75, 0.25, function() end)
+	end
+end
+
+function hide(self, disable)
+	for i, id in pairs(text_nodes) do
+		node = gui.get_node(id)
+		local c = gui.get_color(node)
+		c.w = 0.0
+		gui.animate(node, gui.PROP_COLOR, c, gui.EASING_INOUTSINE, 0.75, 0.25,
+			function() 
+				if disable == true then
+					msg.post(".", "disable")
+				end
+			end
+		)
+	end
+end
+
+function show_game_over(self)
+	hide(false)
+	node = gui.get_node("game_over")
+	gui.set_color(node, vmath.vector4(1, 1, 1, 0))
+	gui.set_enabled(node, true)
+	gui.animate(node, gui.PROP_COLOR, vmath.vector4(1,1,1,1), gui.EASING_INOUTQUINT, 7.0, 0.0,
+		function()
+		    gui.set_enabled(node, false)
+		end
+		,gui.PLAYBACK_ONCE_PINGPONG
+	)
+end
+
+function set_lives(self, lives)
+	node = gui.get_node("life" .. lives)
+	gui.set_color(node, vmath.vector4(1, 1, 1, 1))
+	gui.animate(node, gui.PROP_COLOR, vmath.vector4(1,1,1,0), gui.EASING_OUTCIRC, 1.0)
+	gui.animate(node, gui.PROP_SCALE, vmath.vector3(2,2,2), gui.EASING_OUTCIRC, 1.0)
+end
+
+function reset_lives(self)
+	for i = 1,4 do
+		node = gui.get_node("life" .. i)
+		gui.set_color(node, vmath.vector4(1, 1, 1, 1))
+		gui.set_scale(node, vmath.vector3(1,1,1))
+	end
+end
+
+

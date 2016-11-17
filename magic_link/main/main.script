@@ -1,0 +1,26 @@
+function init(self)	
+	msg.post("#", "to_main_menu")
+	self.state = "MAIN_MENU"
+	particlefx.play("#particlefx")
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("to_main_menu") then
+		if self.state ~= "MAIN_MENU" then
+			msg.post("#boardproxy", "unload")
+		end
+		msg.post("main:/main#menu", "enable")
+		msg.post("#background", "enable")
+		self.state = "MAIN_MENU"
+	elseif message_id == hash("start_game") then
+		msg.post("#background", "disable")
+		msg.post("#boardproxy", "load")
+		msg.post("#menu", "disable")
+	elseif message_id == hash("proxy_loaded") then
+		-- Board collection has loaded...
+		msg.post(sender, "init")
+		msg.post("board:/board#script", "start_level", { difficulty = 1 })
+		msg.post(sender, "enable")
+		self.state = "GAME_RUNNING"
+	end    
+end

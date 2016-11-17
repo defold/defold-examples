@@ -1,0 +1,14 @@
+name: "3d"
+tags: "3d"
+vertex_program: "/material-example/3d.vp"
+fragment_program: "/material-example/3d.fp"
+vertex_constants {
+  name: "view_proj"
+  type: CONSTANT_TYPE_VIEWPROJ
+}
+vertex_constants {
+  name: "world"
+  type: CONSTANT_TYPE_WORLD
+}
+textures: "LEFT"
+textures: "RIGHT"

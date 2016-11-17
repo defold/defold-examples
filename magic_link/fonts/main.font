@@ -1,0 +1,4 @@
+font: "/fonts/Galindo-Regular.ttf"
+material: "/builtins/fonts/font.material"
+size: 40
+outline_alpha: 1.0

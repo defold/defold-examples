@@ -1,0 +1,10 @@
+function init(self)
+	msg.post("#camera", "acquire_camera_focus")
+	
+	-- Tell render script to use view and projection of camera
+	msg.post("@render:", "set_cameratype_viewproj")
+
+	-- Animate the camera back and forth
+	go.animate(".", "position.z", go.PLAYBACK_LOOP_PINGPONG, 300, go.EASING_INOUTSINE, 5)
+end
+

@@ -1,0 +1,31 @@
+function init(self)
+	msg.post("#", "show")
+	msg.post("/restart#gui", "hide")
+	msg.post("/level_complete#gui", "hide")
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("hide") then
+		msg.post("#", "disable")
+	elseif message_id == hash("show") then
+		msg.post("#", "enable")
+	elseif message_id == hash("set_drop_counter") then
+		local n = gui.get_node("drop_counter")
+		gui.set_text(n, message.drops .. " x")
+	end
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("touch") and action.pressed then
+		local restart = gui.get_node("restart")
+		local drop = gui.get_node("drop")
+		
+		if gui.pick_node(restart, action.x, action.y) then
+			-- Show the restart dialog box.
+			msg.post("/restart#gui", "show")
+			msg.post("#", "hide")
+		elseif gui.pick_node(drop, action.x, action.y) then
+			msg.post("/board#script", "drop")
+		end
+	end
+end

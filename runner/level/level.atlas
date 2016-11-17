@@ -1,0 +1,35 @@
+images {
+  image: "/level/images/ground01.png"
+}
+images {
+  image: "/level/images/ground02.png"
+}
+images {
+  image: "/level/images/rock_planks.png"
+}
+images {
+  image: "/level/images/spikes.png"
+}
+images {
+  image: "/level/images/coin.png"
+}
+images {
+  image: "/level/images/heart.png"
+}
+animations {
+  id: "wall_right"
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "wall_left"
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 30
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+margin: 0
+extrude_borders: 4
+inner_padding: 0

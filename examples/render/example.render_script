@@ -1,0 +1,236 @@
+function init(self)
+	-- Define the render predicates. Each predicate is drawn by itself and
+	-- that allows us to change the state of OpenGL between the draws.
+    self.model_pred = render.predicate({"model"})
+    self.tile_pred = render.predicate({"tile"})
+    self.gui_pred = render.predicate({"gui"})
+    self.text_pred = render.predicate({"text"})
+    self.particle_pred = render.predicate({"particle"})
+    self.quad_3d_pred = render.predicate({"3d"})
+    
+	-- Define a color to use as clear color (background color).
+    self.clear_color = vmath.vector4(0, 0, 0, 0)
+    
+	-- Fetch user-set clear color from the game.project
+	-- settings file if it exists. Note that the settings file can
+	-- contain custom settings like this one to use if you like.
+    self.clear_color.x = sys.get_config("render.clear_color_red", 0)
+    self.clear_color.y = sys.get_config("render.clear_color_green", 0)
+    self.clear_color.z = sys.get_config("render.clear_color_blue", 0)
+    self.clear_color.w = sys.get_config("render.clear_color_alpha", 0)
+
+	-- Define a view matrix to use. If we have a camera object, it will
+	-- send "set_view_projection" messages to the render script and we
+	-- can update the view matrix with the value the camera provides.
+    self.view = vmath.matrix4()
+    self.projection = vmath.matrix4()
+    self.has_camera = false    
+
+	-- Default render is 2d
+	self.render_update = hash("2d")
+
+	-- Set up render targets for anaglyphic 3D.
+	local color_params = { format = render.FORMAT_RGBA,
+	                       width = render.get_window_width(),
+	                       height = render.get_window_height(),
+	                       min_filter = render.FILTER_LINEAR,
+	                       mag_filter = render.FILTER_LINEAR,
+	                       u_wrap = render.WRAP_CLAMP_TO_EDGE,
+	                       v_wrap = render.WRAP_CLAMP_TO_EDGE }
+   	local depth_params = { format = render.FORMAT_DEPTH,
+	                       width = render.get_window_width(),
+	                       height = render.get_window_height(),
+	                       u_wrap = render.WRAP_CLAMP_TO_EDGE,
+	                       v_wrap = render.WRAP_CLAMP_TO_EDGE }
+
+	self.target_right = render.render_target("right", {[render.BUFFER_COLOR_BIT] = color_params, [render.BUFFER_DEPTH_BIT] = depth_params })
+	self.target_left = render.render_target("left", {[render.BUFFER_COLOR_BIT] = color_params, [render.BUFFER_DEPTH_BIT] = depth_params })
+
+	self.left_constants = render.constant_buffer()
+	self.left_constants.eye = vmath.vector4(-1.0, 0.0, 0.0, 0.0)
+	self.right_constants = render.constant_buffer()
+	self.right_constants.eye = vmath.vector4(1.0, 0.0, 0.0, 0.0)
+end
+
+-- Simple render update for 2d with camera support
+local function update_2d(self)
+	-- Set the depth mask which allows us to modify the depth buffer.
+    render.set_depth_mask(true)
+    
+	-- Clear the color buffer with the clear color value and set the depth buffer to 1.0.
+	-- The normal depth values are between 0.0 (near) and 1.0 (far) so maximizing the values
+	-- throughout the buffer means that every pixel you draw will be nearer than 1.0 and thus
+	-- it will be properly drawn and depth testing will work from thereon.
+    render.clear({[render.BUFFER_COLOR_BIT] = self.clear_color, [render.BUFFER_DEPTH_BIT] = 1, [render.BUFFER_STENCIL_BIT] = 0})
+
+	-- Set the viewport to the window dimensions.
+    render.set_viewport(0, 0, render.get_window_width(), render.get_window_height())
+	-- Set the view to the stored view value (can be set by a camera object)
+    render.set_view(self.view)
+
+	-- We're gonna start by drawing 2D stuff (sprites and tiles) so we can disable
+	-- depth testing and unset the depth mask. We also disable stencil tests
+	-- and face culling.
+    render.set_depth_mask(false)
+    render.disable_state(render.STATE_DEPTH_TEST)
+    render.disable_state(render.STATE_STENCIL_TEST)
+    render.disable_state(render.STATE_CULL_FACE)
+
+	-- Enable blending and set the blend function. We're gonna use the source alpha as the 
+	-- source blend factor. The destination blend factor is set to one minus the source
+    -- object alpha value (1-src).
+    render.enable_state(render.STATE_BLEND)
+    render.set_blend_func(render.BLEND_SRC_ALPHA, render.BLEND_ONE_MINUS_SRC_ALPHA)
+
+	-- Set the projection to orthographic with our camera origo at lower left. Without a camera
+	-- that's fine since that will be the same as world origo. With a camera we would like to
+	-- have the camera position align to center of screen. Only render between -1 and 1 Z-depth
+    -- (fine for most 2D).
+    if not self.has_camera then
+	    render.set_projection(vmath.matrix4_orthographic(0, render.get_width(), 0, render.get_height(), -1, 1))
+	else
+		local w = render.get_width()
+		local h = render.get_height()
+		if self.has_camera == hash("view") then
+		    render.set_projection(vmath.matrix4_orthographic(- w / 2, w / 2, -h / 2, h / 2, -1000, 1000))
+		else
+			render.set_projection(self.projection)
+		end
+	end
+	
+	-- Now, draw everything in the "tile_pred" predicate (tiles and sprites)
+    render.draw(self.tile_pred)
+    
+    -- Then draw particles.
+    render.draw(self.particle_pred)
+    
+    -- Draw 3D debug information. Lines drawn with "draw_line" messages and physics
+    -- visualization is drawn here.
+    render.draw_debug3d()
+           	
+	-- GUI and on screen text will be drawn in screen space so we're gonna use a
+	-- zero view matrix.
+    render.set_view(vmath.matrix4())
+    
+	-- Projection is still orthographic but use actual window width and height,
+	-- in case it's been resized.
+    render.set_projection(vmath.matrix4_orthographic(0, render.get_window_width(), 0, render.get_window_height(), -1, 1))
+
+	-- Draw the GUI and text predicates. Text drawn with "draw_text" messages are rendered with
+	-- the built-in system font that has tag "text". It's thus part of the "text_pred" predicate.
+	-- The GUI can have stencil clipping nodes so we need to enable that.
+    render.enable_state(render.STATE_STENCIL_TEST)
+	render.draw(self.gui_pred)
+	render.draw(self.text_pred)    
+    render.disable_state(render.STATE_STENCIL_TEST)
+end
+	
+-- 3D render update for anaglyphic 3d with camera support
+local function update_3d(self)
+
+	local eye_offset = 3
+
+	-- Draw right eye view to render target
+	render.enable_render_target(self.target_right)
+    render.set_depth_mask(true)
+    render.clear({[render.BUFFER_COLOR_BIT] = self.clear_color, [render.BUFFER_DEPTH_BIT] = 1 })
+
+    render.set_viewport(0, 0, render.get_window_width(), render.get_window_height())
+
+	local tmat = vmath.matrix4()
+	-- Offset the camera to the right
+	tmat.m03 = eye_offset
+    render.set_view(self.view * tmat)
+	render.set_projection(self.projection)
+
+    render.enable_state(render.STATE_DEPTH_TEST)
+	render.disable_state(render.STATE_CULL_FACE)
+    render.enable_state(render.STATE_BLEND)
+    render.set_blend_func(render.BLEND_SRC_ALPHA, render.BLEND_ONE_MINUS_SRC_ALPHA)
+
+    render.draw(self.model_pred)
+	render.disable_render_target(self.target_right)
+
+	-- Draw left eye view to render target
+	render.enable_render_target(self.target_left)
+	render.clear({[render.BUFFER_COLOR_BIT] = self.clear_color, [render.BUFFER_DEPTH_BIT] = 1 })
+	-- Offset the camera to the left
+	tmat.m03 = -eye_offset
+    render.set_view(self.view * tmat)
+    
+	render.draw(self.model_pred, self.left_constants)
+	render.disable_render_target(self.target_left)
+
+	-- Combine the two views into one.
+    local width = render.get_width()
+    local height = render.get_height()
+	render.set_projection(vmath.matrix4_orthographic(-width/2, width/2, -height/2, height/2, -1, 1))
+
+    render.clear({[render.BUFFER_COLOR_BIT] = self.clear_color, [render.BUFFER_DEPTH_BIT] = 1 })
+    render.set_depth_mask(false)
+    render.disable_state(render.STATE_DEPTH_TEST)
+    render.disable_state(render.STATE_CULL_FACE)
+
+	-- We only draw 1 unit quad so reset view and projection
+    render.set_view(vmath.matrix4())
+    render.set_projection(vmath.matrix4())
+
+    -- Use the two render targets as texture so we can blend them together.
+	render.enable_texture(0, self.target_right, render.BUFFER_COLOR_BIT)
+	render.enable_texture(1, self.target_left, render.BUFFER_COLOR_BIT)
+
+	-- Draw quad covering the screen. The shader blends the textures together.
+	render.draw(self.quad_3d_pred)
+
+	render.disable_texture(0, self.target_right)
+	render.disable_texture(1, self.target_left)
+
+	-- GUI and on screen text will be drawn in screen space so we're gonna use a
+	-- zero view matrix.
+    render.set_view(vmath.matrix4())
+    
+	-- Projection is still orthographic but use actual window width and height,
+	-- in case it's been resized.
+    render.set_projection(vmath.matrix4_orthographic(0, render.get_window_width(), 0, render.get_window_height(), -1, 1))
+	
+	-- Draw the GUI and text predicates.
+    render.enable_state(render.STATE_STENCIL_TEST)
+	render.draw(self.gui_pred)
+	render.draw(self.text_pred)    
+    render.disable_state(render.STATE_STENCIL_TEST)	
+end
+
+function update(self)
+	-- Select update depending on setting.
+	if self.render_update == hash("3d") then
+		update_3d(self)	
+	else
+		update_2d(self)
+	end
+end
+
+function on_message(self, message_id, message)
+    if message_id == hash("clear_color") then
+        self.clear_color = message.color
+    elseif message_id == hash("set_render_update") then
+    	-- Any script can message here and select what render pipeline to use.
+		self.render_update = message.update
+    elseif message_id == hash("no_camera") then
+    	-- User message. No camera
+    	self.has_camera = nil
+   		self.view = vmath.matrix4()
+    	self.projection = vmath.matrix4()
+    elseif message_id == hash("set_cameratype_view") then
+    	-- User message. Camera with view and no projection.
+    	self.has_camera = hash("view")
+    elseif message_id == hash("set_cameratype_viewproj") then
+    	-- User message. Camera with view and projection.
+    	self.has_camera = hash("viewproj")
+    elseif message_id == hash("set_view_projection") then
+    	-- Camera view and projection arrives here.
+        self.view = message.view
+        self.projection = message.projection
+	elseif message_id == hash("window_resized") then
+		-- The window was resized.
+    end
+end

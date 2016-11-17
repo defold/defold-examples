@@ -1,0 +1,4 @@
+font: "/assets/SourceSansPro-Semibold.otf"
+material: "/builtins/fonts/font-df.material"
+size: 36
+output_format: TYPE_DISTANCE_FIELD

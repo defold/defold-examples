@@ -1,0 +1,149 @@
+-- gravity pulling the player down in pixel units/sˆ2
+local gravity = -20
+
+-- take-off speed when jumping in pixel units/s
+local jump_takeoff_speed = 900
+
+go.property("lives", 4)
+
+function init(self)
+	-- this lets us handle input in this script
+	msg.post(".", "acquire_input_focus")
+	-- save position
+	self.position = go.get_position()
+	self.lives = go.get("#", "lives")
+	msg.post("#", "reset")
+end
+
+function final(self)
+	msg.post(".", "release_input_focus")
+end
+
+local function play_animation(self, anim)
+	-- only play animations which are not already playing
+	if self.anim ~= anim then
+		-- tell the spine model to play the animation
+		spine.play("#spinemodel", anim, go.PLAYBACK_LOOP_FORWARD, 0.15)
+		-- remember which animation is playing
+		self.anim = anim
+	end
+end
+
+local function update_animation(self)
+	-- make sure the right animation is playing
+	if self.ground_contact then
+		play_animation(self, hash("run_right"))
+	else
+		if self.velocity.y > 0 then
+			play_animation(self, hash("jump_right"))
+		else
+			play_animation(self, hash("fall_right"))
+		end
+	end
+end
+
+function update(self, dt)
+	local gravity = vmath.vector3(0, gravity, 0)
+
+	if not self.ground_contact then
+		self.velocity = self.velocity + gravity
+	end
+	
+	-- apply it to the player character
+	go.set_position(go.get_position() + self.velocity * dt)
+
+	update_animation(self)
+	
+	-- reset volatile state
+	self.correction = vmath.vector3()
+	self.ground_contact = false	
+end
+
+local function handle_geometry_contact(self, normal, distance)
+	-- project the correction vector onto the contact normal
+	-- (the correction vector is the 0-vector for the first contact point)
+	local proj = vmath.dot(self.correction, normal)
+	-- calculate the compensation we need to make for this contact point
+	local comp = (distance - proj) * normal
+	-- add it to the correction vector
+	self.correction = self.correction + comp
+	-- apply the compensation to the player character
+	go.set_position(go.get_position() + comp)
+	-- check if the normal points enough up to consider the player standing on the ground
+	-- (0.7 is roughly equal to 45 degrees deviation from pure vertical direction)
+	if normal.y > 0.7 then
+		self.ground_contact = true
+	end
+	-- project the velocity onto the normal
+	proj = vmath.dot(self.velocity, normal)
+	-- if the projection is negative, it means that some of the velocity points towards the contact point
+	if proj < 0 then
+		-- remove that component in that case
+		self.velocity = self.velocity - proj * normal
+	end
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("reset") then
+		self.velocity = vmath.vector3(0, 0, 0)
+		self.correction = vmath.vector3()
+		self.ground_contact = false
+		self.anim = nil
+		go.set(".", "euler.z", 0)
+		go.set_position(self.position)
+		msg.post("#collisionobject", "enable")
+		
+	elseif message_id == hash("contact_point_response") then
+		-- check if we received a contact point message
+		if message.group == hash("danger") then
+			-- Die and restart
+			particlefx.play("#deathfx")
+			play_animation(self, hash("die_right"))
+			msg.post("#collisionobject", "disable")
+			msg.post("hud", "set_lives", { lives = self.lives })
+			go.animate(".", "euler.z", go.PLAYBACK_ONCE_FORWARD, 160, go.EASING_LINEAR, 0.7)
+			go.animate(".", "position.y", go.PLAYBACK_ONCE_FORWARD, go.get_position().y - 200, go.EASING_INSINE, 0.5, 0.2,
+				function()
+					if self.lives > 1 then  
+  				    	msg.post("controller#script", "reset")
+  		    		end
+					self.lives = self.lives - 1
+					if self.lives == 0 then
+						msg.post("hud", "show_game_over")
+						msg.post("#", "disable")
+					else
+						msg.post("#", "reset")
+					end
+				end)
+				
+		elseif message.group == hash("geometry") then
+			handle_geometry_contact(self, message.normal, message.distance)
+		end
+	end
+end
+
+local function jump(self)
+	-- only allow jump from ground
+	if self.ground_contact then
+		-- set take-off speed
+		self.velocity.y = jump_takeoff_speed
+	end
+end
+
+local function abort_jump(self)
+	-- cut the jump short if we are still going up
+	if self.velocity.y > 0 then
+		-- scale down the upwards speed
+		self.velocity.y = self.velocity.y * 0.5
+	end
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("jump") or action_id == hash("touch") then
+		if action.pressed then
+			jump(self)
+		elseif action.released then
+			abort_jump(self)
+		end
+	end
+end

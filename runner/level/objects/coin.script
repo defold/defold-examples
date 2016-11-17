@@ -1,0 +1,17 @@
+local value = 100
+
+function init(self)
+	self.collected = false
+end
+
+function on_message(self, message_id, message, sender)
+	if self.collected == false and message_id == hash("collision_response") then
+		self.collected = true
+		particlefx.play("#collect")
+		msg.post("#sprite", "disable")
+		msg.post("/level/controller#script", "score_coin")
+	elseif message_id == hash("start_animation") then
+		pos = go.get_position()
+		go.animate(go.get_id(), "position.y", go.PLAYBACK_LOOP_PINGPONG, pos.y + 24, go.EASING_INOUTSINE, 0.75, message.delay)
+	end
+end

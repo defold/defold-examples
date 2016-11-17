@@ -1,0 +1,39 @@
+images {
+  image: "/assets/images/defold.png"
+}
+images {
+  image: "/assets/images/grey_button00.png"
+}
+images {
+  image: "/assets/images/grey_button15.png"
+}
+images {
+  image: "/assets/images/shadedDark03.png"
+}
+images {
+  image: "/assets/images/shadedDark05.png"
+}
+images {
+  image: "/assets/images/shadedDark06.png"
+}
+images {
+  image: "/assets/images/shadedDark10.png"
+}
+images {
+  image: "/assets/images/shadedDark36.png"
+}
+images {
+  image: "/assets/images/shadedDark37.png"
+}
+images {
+  image: "/assets/images/shadedDark47.png"
+}
+images {
+  image: "/assets/images/pie.png"
+}
+images {
+  image: "/assets/images/3dglasses.png"
+}
+margin: 0
+extrude_borders: 4
+inner_padding: 0

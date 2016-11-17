@@ -1,0 +1,108 @@
+function init(self)
+	self.buttons = { "back", "dpad", "a", "b" }
+	self.actions = { hash("left"), hash("right"), hash("up"), hash("down"), hash("a"), hash("b") }
+	
+	self.controls_receiver = nil
+	self.controls_active = false
+	msg.post("#", "hide_controls")
+end
+
+-- Test a point against the dpad shapes. Since the shapes are 
+local function dpad_which_button(x, y)
+	-- Ignore corner zones where there's no button gfx.
+	if math.abs(x) > 30 and math.abs(y) > 30 then
+		return false
+	end
+	
+	-- Which up-down-left-right quadrant is clicked?
+	if math.abs(x) < y then
+		return hash("up")
+	elseif math.abs(x) < -y then
+		return hash("down")
+	elseif math.abs(y) < x then
+		return hash("right")
+	elseif math.abs(y) < -x then
+		return hash("left")
+	end
+	return false
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("aquire_controls") then
+		self.controls_receiver = sender
+	elseif message_id == hash("on") then
+	    msg.post(nil, "acquire_input_focus")
+	elseif message_id == hash("off") then
+	    msg.post(nil, "release_input_focus")
+	elseif message_id == hash("show_controls") then
+		gui.set_enabled(gui.get_node("dpad"), true)
+		gui.set_enabled(gui.get_node("a"), true)
+		gui.set_enabled(gui.get_node("b"), true)
+		self.controls_active = true
+	elseif message_id == hash("hide_controls") then
+		gui.set_enabled(gui.get_node("dpad"), false)
+		gui.set_enabled(gui.get_node("a"), false)
+		gui.set_enabled(gui.get_node("b"), false)
+		self.controls_active = false
+	elseif message_id == hash("control_pressed") then
+		if message.button == "dpad" then
+			if not self.controls_active then
+				return
+			end 
+			-- We got to sort out the dpad click positions by ourselves because of the button shapes.
+			local button = dpad_which_button(message.x, message.y)
+			if button and message.action.pressed then
+				msg.post("/sound#click", "play_sound")
+			end
+			if self.controls_receiver then
+				msg.post(self.controls_receiver, button)
+			end
+		elseif message.button == "a" or message.button == "b" then
+			if not self.controls_active then
+				return
+			end 
+			-- A and B buttons
+			msg.post("/sound#click", "play_sound")
+			if self.controls_receiver then
+				msg.post(self.controls_receiver, message.button)
+			end
+		elseif message.button == "back" then
+			msg.post("/sound#click", "play_sound")
+			msg.post("/main_menu#gui", "back")
+		end
+	end
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("click") then
+		local x = action.x
+		local y = action.y		
+				
+		for i, button in ipairs(self.buttons) do
+			-- Search list for nodes to test against.
+			if gui.pick_node(gui.get_node(button), x, y) then
+				-- ignore "a" and "b" repeats
+			    if (button == "a" or button == "b" or button == "back") and not action.pressed then
+					return
+				end
+
+				-- Found click node. Send ourselves a message named "node" and position (for dpad)
+				-- Adjust position so we get origo in the center of the node.
+				local p = gui.get_position(gui.get_node(button))
+				msg.post("#", "control_pressed", { button = button, x = x - p.x, y = y - p.y, action = action })
+			end
+		end
+	end
+	
+	-- Keyboard controls.
+	for i, a in ipairs(self.actions) do
+		if action_id == a and self.controls_receiver ~= nil then
+			-- ignore "a" and "b" repeats
+		    if (action_id == hash("a") or action_id == hash("b")) and not action.pressed then
+				return
+			end
+			msg.post(self.controls_receiver, a)
+		end
+	end
+
+end

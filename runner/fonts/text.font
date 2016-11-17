@@ -1,0 +1,6 @@
+font: "/fonts/BoogalooOne-Regular.ttf"
+material: "/builtins/fonts/font-df.material"
+size: 40
+outline_alpha: 1.0
+outline_width: 2.0
+output_format: TYPE_DISTANCE_FIELD

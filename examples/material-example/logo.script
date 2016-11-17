@@ -1,0 +1,8 @@
+function init(self)
+	-- Animate!
+	go.animate(".", "euler.x", go.PLAYBACK_LOOP_FORWARD, 360, go.EASING_LINEAR, 9)
+	go.animate(".", "euler.y", go.PLAYBACK_LOOP_FORWARD, 360, go.EASING_LINEAR, 11)
+	go.animate(".", "euler.z", go.PLAYBACK_LOOP_FORWARD, 360, go.EASING_LINEAR, 13)
+
+--	go.animate(".", "position.z", go.PLAYBACK_LOOP_FORWARD, 1000, go.EASING_LINEAR, 10)
+end

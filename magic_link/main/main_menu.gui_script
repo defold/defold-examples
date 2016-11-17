@@ -1,0 +1,27 @@
+function init(self)
+	msg.post(".", "acquire_input_focus")
+	
+	local bs = { "brick1", "brick2", "brick3", "brick4", "brick5", "brick6" }
+	for i, b in ipairs(bs) do
+		local n = gui.get_node(b)
+		local rt = (math.random() * 3) + 1
+		local a = math.random(-45, 45)
+		gui.set_color(n, vmath.vector4(1, 1, 1, 0))	
+		
+		gui.animate(n, "position.y", -100 - math.random(0, 50), gui.EASING_INSINE, 1 + rt, 0, nil, gui.PLAYBACK_LOOP_FORWARD)
+		gui.animate(n, "color.w", 1, gui.EASING_INSINE, 1 + rt, 0, nil, gui.PLAYBACK_LOOP_FORWARD)
+		gui.animate(n, "rotation.z", a, gui.EASING_INSINE, 1 + rt, 0, nil, gui.PLAYBACK_LOOP_FORWARD)
+	end
+	
+	gui.animate(gui.get_node("start"), "color.x", 1, gui.EASING_INOUTSINE, 1, 0, nil, gui.PLAYBACK_LOOP_PINGPONG)
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("touch") and action.pressed then
+		local start = gui.get_node("start")
+		
+		if gui.pick_node(start, action.x, action.y) then
+			msg.post("/main#script", "start_game")
+		end
+	end
+end

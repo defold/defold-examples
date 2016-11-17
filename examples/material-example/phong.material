@@ -1,0 +1,20 @@
+name: "phong"
+tags: "model"
+vertex_program: "/material-example/phong.vp"
+fragment_program: "/material-example/phong.fp"
+vertex_constants {
+  name: "view_proj"
+  type: CONSTANT_TYPE_VIEWPROJ
+}
+vertex_constants {
+  name: "world"
+  type: CONSTANT_TYPE_WORLD
+}
+vertex_constants {
+  name: "modelview"
+  type: CONSTANT_TYPE_WORLDVIEW
+}
+vertex_constants {
+  name: "normalMat"
+  type: CONSTANT_TYPE_NORMAL
+}
