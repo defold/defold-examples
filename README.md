@@ -1,4 +1,4 @@
-# Defold Examples
+# Defold examples
 
 Welcome to the Defold examples repo. Here you find a variety of Defold projects that you can use for study or as a base for your own work. If you want to scavenge them for assets that's fine too.
 
