@@ -4,9 +4,9 @@ Welcome to the Defold examples repo. Here you find a variety of Defold projects 
 
 ## Alien World
 
-  by *Luis Zuno*
-  Web: http://ansimuz.com/
-  Twitter: https://twitter.com/ansimuz
+by *Luis Zuno*
+/ Web: http://ansimuz.com/
+/ Twitter: https://twitter.com/ansimuz
 
 Alien World is a complete game art pack to make a fantastic sci-fi platform metroidvania game in the style of the 16-bit console era. It includes everything you need, from seamless loopable backgrounds, tillable sprites, sci-fi props, some fearful enemies, mysterious NPC’s and of course a Daring Hero. (Please give credit to Luis Zuno when you use the art in a game.)
 
