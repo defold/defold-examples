@@ -23,9 +23,7 @@ by Luis Zuno
 web: http://ansimuz.com/
 twitter: https://twitter.com/ansimuz
 
-[Download zip archive](alien_world.zip?raw=true)
-
-![Alien World](alien_world/preview.png?raw=true)
+![Alien World](alien-world/preview.png?raw=true)
 
 ## Magic Link
 
@@ -34,9 +32,7 @@ of the same color to create space for the spheres to move.
 
 There is a tutorial on how to build this game step by step from scratch at http://www.defold.com/tutorials/magic-link/
 
-[Download zip archive](magic_link.zip?raw=true)
-
-![Magic Link](magic_link/preview.png?raw=true)
+![Magic Link](magic-link/preview.png?raw=true)
 
 ## Runner
 
