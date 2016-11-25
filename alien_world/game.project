@@ -23,3 +23,5 @@ shared_state = 1
 [graphics]
 max_debug_vertices = 100000
 
+[library]
+include_dirs = assets
