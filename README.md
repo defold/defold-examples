@@ -23,7 +23,7 @@ by Luis Zuno
 web: http://ansimuz.com/
 twitter: https://twitter.com/ansimuz
 
-[Zip archive](alien_world.zip?raw=true)
+[Download zip archive](alien_world.zip?raw=true)
 
 ![Alien World](alien_world/preview.png?raw=true)
 
@@ -34,6 +34,8 @@ of the same color to create space for the spheres to move.
 
 There is a tutorial on how to build this game step by step from scratch at http://www.defold.com/tutorials/magic-link/
 
+[Download zip archive](magic_link.zip?raw=true)
+
 ![Magic Link](magic_link/preview.png?raw=true)
 
 ## Runner
@@ -43,10 +45,14 @@ possible.
 
 There is a tutorial on how to build this game step by step from scratch at http://www.defold.com/tutorials/getting-started/
 
+[Download zip archive](runner.zip?raw=true)
+
 ![Runner](runner/preview.png?raw=true)
 
 ## Examples
 
 A handful of isolated examples showcasing various aspects of the Defold engine.
+
+[Download zip archive](examples.zip?raw=true)
 
 ![Examples](examples/preview.png?raw=true)
