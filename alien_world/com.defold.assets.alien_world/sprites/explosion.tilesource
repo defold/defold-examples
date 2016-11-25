@@ -1,19 +1,13 @@
-image: "/assets/sprites/explosion.png"
+image: "/com.defold.assets.alien_world/sprites/explosion.png"
 tile_width: 64
 tile_height: 60
 tile_margin: 0
 tile_spacing: 0
-collision: ""
 material_tag: "tile"
 collision_groups: "default"
 animations {
   id: "explode"
   start_tile: 1
   end_tile: 6
-  playback: PLAYBACK_ONCE_FORWARD
   fps: 16
-  flip_horizontal: 0
-  flip_vertical: 0
 }
-extrude_borders: 0
-inner_padding: 0

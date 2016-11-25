@@ -1,9 +1,8 @@
-image: "/assets/sprites/guy.png"
+image: "/com.defold.assets.alien_world/sprites/guy.png"
 tile_width: 48
 tile_height: 35
 tile_margin: 0
 tile_spacing: 0
-collision: ""
 material_tag: "tile"
 collision_groups: "default"
 animations {
@@ -12,8 +11,6 @@ animations {
   end_tile: 3
   playback: PLAYBACK_LOOP_FORWARD
   fps: 4
-  flip_horizontal: 0
-  flip_vertical: 0
 }
 animations {
   id: "walk"
@@ -21,8 +18,4 @@ animations {
   end_tile: 8
   playback: PLAYBACK_LOOP_FORWARD
   fps: 6
-  flip_horizontal: 0
-  flip_vertical: 0
 }
-extrude_borders: 0
-inner_padding: 0

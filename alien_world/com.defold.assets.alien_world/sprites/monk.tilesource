@@ -1,9 +1,8 @@
-image: "/assets/sprites/monk.png"
+image: "/com.defold.assets.alien_world/sprites/monk.png"
 tile_width: 26
 tile_height: 34
 tile_margin: 0
 tile_spacing: 0
-collision: ""
 material_tag: "tile"
 collision_groups: "default"
 animations {
@@ -12,26 +11,17 @@ animations {
   end_tile: 9
   playback: PLAYBACK_LOOP_FORWARD
   fps: 4
-  flip_horizontal: 0
-  flip_vertical: 0
 }
 animations {
   id: "sit"
   start_tile: 9
   end_tile: 11
-  playback: PLAYBACK_ONCE_FORWARD
   fps: 2
-  flip_horizontal: 0
-  flip_vertical: 0
 }
 animations {
   id: "sitting"
   start_tile: 11
   end_tile: 11
-  playback: PLAYBACK_ONCE_FORWARD
-  fps: 30
-  flip_horizontal: 0
-  flip_vertical: 0
 }
 animations {
   id: "walk"
@@ -39,8 +29,4 @@ animations {
   end_tile: 6
   playback: PLAYBACK_LOOP_FORWARD
   fps: 8
-  flip_horizontal: 0
-  flip_vertical: 0
 }
-extrude_borders: 0
-inner_padding: 0

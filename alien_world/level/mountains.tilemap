@@ -1,4 +1,4 @@
-tile_set: "/assets/environment/background.tilesource"
+tile_set: "/com.defold.assets.alien_world/environment/background.tilesource"
 layers {
   id: "layer1"
   z: 0.0

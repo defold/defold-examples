@@ -1,19 +1,15 @@
-image: "/assets/sprites/skull.png"
+image: "/com.defold.assets.alien_world/sprites/skull.png"
 tile_width: 64
 tile_height: 64
 tile_margin: 0
 tile_spacing: 0
-collision: ""
 material_tag: "tile"
 collision_groups: "default"
 animations {
   id: "die"
   start_tile: 11
   end_tile: 15
-  playback: PLAYBACK_ONCE_FORWARD
   fps: 8
-  flip_horizontal: 0
-  flip_vertical: 0
 }
 animations {
   id: "fly"
@@ -21,8 +17,6 @@ animations {
   end_tile: 4
   playback: PLAYBACK_LOOP_FORWARD
   fps: 8
-  flip_horizontal: 0
-  flip_vertical: 0
 }
 animations {
   id: "perched"
@@ -30,8 +24,4 @@ animations {
   end_tile: 9
   playback: PLAYBACK_LOOP_FORWARD
   fps: 8
-  flip_horizontal: 0
-  flip_vertical: 0
 }
-extrude_borders: 0
-inner_padding: 0

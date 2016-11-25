@@ -24,4 +24,5 @@ shared_state = 1
 max_debug_vertices = 100000
 
 [library]
-include_dirs = assets
+include_dirs = com.defold.assets.alien_world
+
