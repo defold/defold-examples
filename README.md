@@ -23,6 +23,8 @@ by Luis Zuno
 web: http://ansimuz.com/
 twitter: https://twitter.com/ansimuz
 
+Zip archive for download: https://github.com/defold/defold-examples/releases/download/0.1.0/alien-world.zip (Can also be used as a library dependency)
+
 ![Alien World](alien-world/preview.png?raw=true)
 
 ## Magic Link
@@ -31,6 +33,8 @@ A simple game where the goal is to connect a set of magic spheres. Remove adjace
 of the same color to create space for the spheres to move.
 
 There is a tutorial on how to build this game step by step from scratch at http://www.defold.com/tutorials/magic-link/
+
+Zip archive for download: https://github.com/defold/defold-examples/releases/download/0.1.0/magic-link.zip (Can also be used as a library dependency)
 
 ![Magic Link](magic-link/preview.png?raw=true)
 
@@ -41,7 +45,7 @@ possible.
 
 There is a tutorial on how to build this game step by step from scratch at http://www.defold.com/tutorials/getting-started/
 
-[Download zip archive](runner.zip?raw=true)
+Zip archive for download: https://github.com/defold/defold-examples/releases/download/0.1.0/runner.zip (Can also be used as a library dependency)
 
 ![Runner](runner/preview.png?raw=true)
 
@@ -49,6 +53,6 @@ There is a tutorial on how to build this game step by step from scratch at http:
 
 A handful of isolated examples showcasing various aspects of the Defold engine.
 
-[Download zip archive](examples.zip?raw=true)
+Zip archive for download: https://github.com/defold/defold-examples/releases/download/0.1.0/examples.zip
 
 ![Examples](examples/preview.png?raw=true)
