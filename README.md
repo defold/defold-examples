@@ -23,6 +23,8 @@ by Luis Zuno
 web: http://ansimuz.com/
 twitter: https://twitter.com/ansimuz
 
+[Zip archive](alien_world.zip?raw=true)
+
 ![Alien World](alien_world/preview.png?raw=true)
 
 ## Magic Link
