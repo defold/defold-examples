@@ -13,6 +13,9 @@ zip archive.
 * Drag the contents of the archive to the location of the new project in the Finder/Explorer and replace the files in the project
 * The editor will pick up the new files and you are ready to go
 
+Alternatively you can add a project as a library dependency in a project. Add the zip url to the
+"dependencies" in the *project* section in "game.project".
+
 If you have any questions about these examples, please don't hesitate to visit [the Defold forum](http://forum.defold.com).
 
 ## Alien World
@@ -23,7 +26,7 @@ by Luis Zuno
 web: http://ansimuz.com/
 twitter: https://twitter.com/ansimuz
 
-Zip archive for download: https://github.com/defold/defold-examples/releases/download/0.1.0/alien-world.zip (Can also be used as a library dependency)
+Download or library use: https://github.com/defold/defold-examples/releases/download/0.1.0/alien-world.zip
 
 ![Alien World](alien-world/preview.png?raw=true)
 
@@ -34,7 +37,7 @@ of the same color to create space for the spheres to move.
 
 There is a tutorial on how to build this game step by step from scratch at http://www.defold.com/tutorials/magic-link/
 
-Zip archive for download: https://github.com/defold/defold-examples/releases/download/0.1.0/magic-link.zip (Can also be used as a library dependency)
+Download or library use: https://github.com/defold/defold-examples/releases/download/0.1.0/magic-link.zip
 
 ![Magic Link](magic-link/preview.png?raw=true)
 
@@ -45,7 +48,7 @@ possible.
 
 There is a tutorial on how to build this game step by step from scratch at http://www.defold.com/tutorials/getting-started/
 
-Zip archive for download: https://github.com/defold/defold-examples/releases/download/0.1.0/runner.zip (Can also be used as a library dependency)
+Download or library use: https://github.com/defold/defold-examples/releases/download/0.1.0/runner.zip
 
 ![Runner](runner/preview.png?raw=true)
 
@@ -53,6 +56,6 @@ Zip archive for download: https://github.com/defold/defold-examples/releases/dow
 
 A handful of isolated examples showcasing various aspects of the Defold engine.
 
-Zip archive for download: https://github.com/defold/defold-examples/releases/download/0.1.0/examples.zip
+Download: https://github.com/defold/defold-examples/releases/download/0.1.0/examples.zip
 
 ![Examples](examples/preview.png?raw=true)
