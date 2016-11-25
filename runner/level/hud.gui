@@ -5,25 +5,18 @@ fonts {
 }
 textures {
   name: "level"
-  texture: "/level/level.atlas"
+  texture: "/def-runner/level.atlas"
 }
 background_color {
-  x: 0.0
-  y: 0.0
-  z: 0.0
   w: 1.0
 }
 nodes {
   position {
     x: 192.0
     y: 640.0
-    z: 0.0
     w: 1.0
   }
   rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   scale {
@@ -35,7 +28,6 @@ nodes {
   size {
     x: 200.0
     y: 100.0
-    z: 0.0
     w: 1.0
   }
   color {
@@ -45,7 +37,6 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
   text: "0"
   font: "score"
   id: "score"
@@ -53,9 +44,6 @@ nodes {
   yanchor: YANCHOR_TOP
   pivot: PIVOT_W
   outline {
-    x: 0.0
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   shadow {
@@ -64,29 +52,17 @@ nodes {
     z: 1.0
     w: 1.0
   }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: false
-  layer: ""
   inherit_alpha: true
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
   outline_alpha: 0.0
   shadow_alpha: 0.0
-  template_node_child: false
 }
 nodes {
   position {
     x: 170.0
     y: 640.0
-    z: 0.0
     w: 1.0
   }
   rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   scale {
@@ -98,7 +74,6 @@ nodes {
   size {
     x: 200.0
     y: 100.0
-    z: 0.0
     w: 1.0
   }
   color {
@@ -108,7 +83,6 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
   text: "SCORE"
   font: "score"
   id: "score_text"
@@ -116,9 +90,6 @@ nodes {
   yanchor: YANCHOR_TOP
   pivot: PIVOT_E
   outline {
-    x: 0.0
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   shadow {
@@ -127,29 +98,17 @@ nodes {
     z: 1.0
     w: 1.0
   }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: false
-  layer: ""
   inherit_alpha: true
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
   outline_alpha: 0.0
   shadow_alpha: 0.0
-  template_node_child: false
 }
 nodes {
   position {
     x: 640.0
     y: 360.0
-    z: 0.0
     w: 1.0
   }
   rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   scale {
@@ -161,7 +120,6 @@ nodes {
   size {
     x: 200.0
     y: 100.0
-    z: 0.0
     w: 1.0
   }
   color {
@@ -171,17 +129,10 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEXT
-  blend_mode: BLEND_MODE_ALPHA
   text: "Game Over"
   font: "score"
   id: "game_over"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
   outline {
-    x: 0.0
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   shadow {
@@ -190,29 +141,18 @@ nodes {
     z: 1.0
     w: 1.0
   }
-  adjust_mode: ADJUST_MODE_FIT
-  line_break: false
-  layer: ""
   inherit_alpha: true
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
   alpha: 0.0
   outline_alpha: 0.0
   shadow_alpha: 0.0
-  template_node_child: false
 }
 nodes {
   position {
     x: 1180.0
     y: 640.0
-    z: 0.0
     w: 1.0
   }
   rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   scale {
@@ -224,7 +164,6 @@ nodes {
   size {
     x: 48.0
     y: 48.0
-    z: 0.0
     w: 1.0
   }
   color {
@@ -233,39 +172,18 @@ nodes {
     z: 1.0
     w: 1.0
   }
-  type: TYPE_BOX
-  blend_mode: BLEND_MODE_ALPHA
   texture: "level/heart"
   id: "life1"
   xanchor: XANCHOR_RIGHT
   yanchor: YANCHOR_TOP
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
-  layer: ""
   inherit_alpha: true
-  slice9 {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 0.0
-  }
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  template_node_child: false
 }
 nodes {
   position {
     x: -52.0
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   scale {
@@ -277,7 +195,6 @@ nodes {
   size {
     x: 48.0
     y: 48.0
-    z: 0.0
     w: 1.0
   }
   color {
@@ -286,40 +203,17 @@ nodes {
     z: 1.0
     w: 1.0
   }
-  type: TYPE_BOX
-  blend_mode: BLEND_MODE_ALPHA
   texture: "level/heart"
   id: "life2"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
   parent: "life1"
-  layer: ""
   inherit_alpha: true
-  slice9 {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 0.0
-  }
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  template_node_child: false
 }
 nodes {
   position {
     x: -104.0
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   scale {
@@ -331,7 +225,6 @@ nodes {
   size {
     x: 48.0
     y: 48.0
-    z: 0.0
     w: 1.0
   }
   color {
@@ -340,40 +233,17 @@ nodes {
     z: 1.0
     w: 1.0
   }
-  type: TYPE_BOX
-  blend_mode: BLEND_MODE_ALPHA
   texture: "level/heart"
   id: "life3"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
   parent: "life1"
-  layer: ""
   inherit_alpha: true
-  slice9 {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 0.0
-  }
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  template_node_child: false
 }
 nodes {
   position {
     x: -156.0
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
     w: 1.0
   }
   scale {
@@ -385,7 +255,6 @@ nodes {
   size {
     x: 48.0
     y: 48.0
-    z: 0.0
     w: 1.0
   }
   color {
@@ -394,28 +263,9 @@ nodes {
     z: 1.0
     w: 1.0
   }
-  type: TYPE_BOX
-  blend_mode: BLEND_MODE_ALPHA
   texture: "level/heart"
   id: "life4"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
   parent: "life1"
-  layer: ""
   inherit_alpha: true
-  slice9 {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 0.0
-  }
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
-  alpha: 1.0
-  template_node_child: false
 }
-material: "/builtins/materials/gui.material"
 adjust_reference: ADJUST_REFERENCE_PARENT

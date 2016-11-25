@@ -1,0 +1,353 @@
+script: "/main/main_menu.gui_script"
+fonts {
+  name: "main"
+  font: "/fonts/main.font"
+}
+fonts {
+  name: "heading"
+  font: "/fonts/heading.font"
+}
+textures {
+  name: "gui"
+  texture: "/def-magic-link/gui.atlas"
+}
+textures {
+  name: "sprites"
+  texture: "/def-magic-link/sprites.atlas"
+}
+background_color {
+  w: 1.0
+}
+nodes {
+  position {
+    x: 320.0
+    y: 872.9374
+    w: 1.0
+  }
+  rotation {
+    w: 1.0
+  }
+  scale {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+    w: 1.0
+  }
+  color {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  type: TYPE_TEXT
+  blend_mode: BLEND_MODE_ADD
+  text: "Magic Link"
+  font: "heading"
+  id: "Heading"
+  outline {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  inherit_alpha: true
+  outline_alpha: 0.0
+  shadow_alpha: 0.0
+}
+nodes {
+  position {
+    x: 595.40485
+    y: 700.51373
+    w: 1.0
+  }
+  rotation {
+    z: -21.772396
+    w: 1.0
+  }
+  scale {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 160.0
+    y: 160.0
+    w: 1.0
+  }
+  color {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  texture: "sprites/blue"
+  id: "brick1"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 361.85245
+    y: 371.16083
+    w: 1.0
+  }
+  rotation {
+    z: 1.1459156
+    w: 1.0
+  }
+  scale {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 120.0
+    y: 120.0
+    w: 1.0
+  }
+  color {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  texture: "sprites/orange"
+  id: "brick2"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 282.8806
+    y: 736.04395
+    w: 1.0
+  }
+  rotation {
+    z: 5.729578
+    w: 1.0
+  }
+  scale {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 130.0
+    y: 130.0
+    w: 1.0
+  }
+  color {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  texture: "sprites/green"
+  id: "brick3"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 406.7993
+    y: 932.1531
+    w: 1.0
+  }
+  rotation {
+    z: 14.896903
+    w: 1.0
+  }
+  scale {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 200.0
+    y: 200.0
+    w: 1.0
+  }
+  color {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  texture: "sprites/yellow"
+  id: "brick4"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 171.12231
+    y: 527.0752
+    w: 1.0
+  }
+  rotation {
+    z: -18.33465
+    w: 1.0
+  }
+  scale {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 180.0
+    y: 180.0
+    w: 1.0
+  }
+  color {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  texture: "sprites/pink"
+  id: "brick5"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 37.202126
+    y: 819.2973
+    w: 1.0
+  }
+  rotation {
+    z: -9.167325
+    w: 1.0
+  }
+  scale {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 150.0
+    y: 150.0
+    w: 1.0
+  }
+  color {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  texture: "sprites/orange"
+  id: "brick6"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 320.0
+    y: 512.0
+    w: 1.0
+  }
+  rotation {
+    w: 1.0
+  }
+  scale {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 250.0
+    y: 80.0
+    w: 1.0
+  }
+  color {
+    x: 0.36078432
+    y: 0.34901962
+    z: 0.36862746
+    w: 1.0
+  }
+  id: "start"
+  alpha: 0.0
+}
+nodes {
+  position {
+    w: 1.0
+  }
+  rotation {
+    w: 1.0
+  }
+  scale {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 400.0
+    y: 200.0
+    w: 1.0
+  }
+  color {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  texture: "gui/button1"
+  id: "start_button"
+  parent: "start"
+}
+nodes {
+  position {
+    y: 0.5330012
+    w: 1.0
+  }
+  rotation {
+    w: 1.0
+  }
+  scale {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+    w: 1.0
+  }
+  color {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  type: TYPE_TEXT
+  text: "Start"
+  font: "main"
+  id: "start_text"
+  outline {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  shadow {
+    x: 1.0
+    y: 1.0
+    z: 1.0
+    w: 1.0
+  }
+  parent: "start"
+}

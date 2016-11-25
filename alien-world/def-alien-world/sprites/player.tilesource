@@ -1,0 +1,35 @@
+image: "/def-alien-world/sprites/player.png"
+tile_width: 32
+tile_height: 36
+tile_margin: 0
+tile_spacing: 0
+material_tag: "tile"
+collision_groups: "default"
+animations {
+  id: "fall"
+  start_tile: 16
+  end_tile: 16
+  playback: PLAYBACK_NONE
+  fps: 8
+}
+animations {
+  id: "idle"
+  start_tile: 9
+  end_tile: 12
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+}
+animations {
+  id: "jump"
+  start_tile: 13
+  end_tile: 15
+  fps: 8
+}
+animations {
+  id: "run"
+  start_tile: 1
+  end_tile: 8
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 14
+}
+extrude_borders: 1

@@ -64,7 +64,7 @@ embedded_components {
 embedded_components {
   id: "sprite"
   type: "sprite"
-  data: "tile_set: \"/level/level.atlas\"\ndefault_animation: \"rock_planks\"\nmaterial: \"/builtins/materials/sprite.material\"\nblend_mode: BLEND_MODE_ALPHA\n"
+  data: "tile_set: \"/def-runner/level.atlas\"\ndefault_animation: \"rock_planks\"\n"
   position {
     x: 0.0
     y: 0.0
@@ -80,7 +80,7 @@ embedded_components {
 embedded_components {
   id: "sprite1"
   type: "sprite"
-  data: "tile_set: \"/level/level.atlas\"\ndefault_animation: \"spikes\"\nmaterial: \"/builtins/materials/sprite.material\"\nblend_mode: BLEND_MODE_ALPHA\n"
+  data: "tile_set: \"/def-runner/level.atlas\"\ndefault_animation: \"spikes\"\n"
   position {
     x: -189.30458
     y: 0.0
@@ -96,7 +96,7 @@ embedded_components {
 embedded_components {
   id: "sprite2"
   type: "sprite"
-  data: "tile_set: \"/level/level.atlas\"\ndefault_animation: \"spikes\"\nmaterial: \"/builtins/materials/sprite.material\"\nblend_mode: BLEND_MODE_ALPHA\n"
+  data: "tile_set: \"/def-runner/level.atlas\"\ndefault_animation: \"spikes\"\n"
   position {
     x: 191.08813
     y: -4.696206
@@ -112,7 +112,7 @@ embedded_components {
 embedded_components {
   id: "sprite3"
   type: "sprite"
-  data: "tile_set: \"/level/level.atlas\"\ndefault_animation: \"spikes\"\nmaterial: \"/builtins/materials/sprite.material\"\nblend_mode: BLEND_MODE_ALPHA\n"
+  data: "tile_set: \"/def-runner/level.atlas\"\ndefault_animation: \"spikes\"\n"
   position {
     x: -83.63994
     y: -77.487404
@@ -128,7 +128,7 @@ embedded_components {
 embedded_components {
   id: "sprite4"
   type: "sprite"
-  data: "tile_set: \"/level/level.atlas\"\ndefault_animation: \"spikes\"\nmaterial: \"/builtins/materials/sprite.material\"\nblend_mode: BLEND_MODE_ALPHA\n"
+  data: "tile_set: \"/def-runner/level.atlas\"\ndefault_animation: \"spikes\"\n"
   position {
     x: 73.682976
     y: -77.487404

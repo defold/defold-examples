@@ -1,0 +1,21 @@
+image: "/def-alien-world/sprites/warrior.png"
+tile_width: 28
+tile_height: 42
+tile_margin: 0
+tile_spacing: 0
+material_tag: "tile"
+collision_groups: "default"
+animations {
+  id: "idle"
+  start_tile: 1
+  end_tile: 4
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 4
+}
+animations {
+  id: "walk"
+  start_tile: 6
+  end_tile: 10
+  playback: PLAYBACK_LOOP_BACKWARD
+  fps: 8
+}

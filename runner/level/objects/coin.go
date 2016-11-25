@@ -47,7 +47,7 @@ embedded_components {
 embedded_components {
   id: "sprite"
   type: "sprite"
-  data: "tile_set: \"/level/level.atlas\"\ndefault_animation: \"coin\"\nmaterial: \"/builtins/materials/sprite.material\"\nblend_mode: BLEND_MODE_ALPHA\n"
+  data: "tile_set: \"/def-runner/level.atlas\"\ndefault_animation: \"coin\"\n"
   position {
     x: 0.0
     y: 0.0

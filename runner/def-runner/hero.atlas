@@ -1,0 +1,99 @@
+images {
+  image: "/def-runner/hero_images/ArmL01.png"
+}
+images {
+  image: "/def-runner/hero_images/ArmL02.png"
+}
+images {
+  image: "/def-runner/hero_images/ArmL03.png"
+}
+images {
+  image: "/def-runner/hero_images/ArmR01.png"
+}
+images {
+  image: "/def-runner/hero_images/ArmR02.png"
+}
+images {
+  image: "/def-runner/hero_images/ArmR03.png"
+}
+images {
+  image: "/def-runner/hero_images/BodyA01.png"
+}
+images {
+  image: "/def-runner/hero_images/BodyA02.png"
+}
+images {
+  image: "/def-runner/hero_images/BodyB01.png"
+}
+images {
+  image: "/def-runner/hero_images/BodyB02.png"
+}
+images {
+  image: "/def-runner/hero_images/empty.png"
+}
+images {
+  image: "/def-runner/hero_images/Eye01.png"
+}
+images {
+  image: "/def-runner/hero_images/Head01.png"
+}
+images {
+  image: "/def-runner/hero_images/Head02.png"
+}
+images {
+  image: "/def-runner/hero_images/Head02B.png"
+}
+images {
+  image: "/def-runner/hero_images/Head03.png"
+}
+images {
+  image: "/def-runner/hero_images/Head03B.png"
+}
+images {
+  image: "/def-runner/hero_images/LegB01.png"
+}
+images {
+  image: "/def-runner/hero_images/LegB02.png"
+}
+images {
+  image: "/def-runner/hero_images/LegB03.png"
+}
+images {
+  image: "/def-runner/hero_images/LegB04.png"
+}
+images {
+  image: "/def-runner/hero_images/LegL00.png"
+}
+images {
+  image: "/def-runner/hero_images/LegLA01.png"
+}
+images {
+  image: "/def-runner/hero_images/LegLA02.png"
+}
+images {
+  image: "/def-runner/hero_images/LegLA03.png"
+}
+images {
+  image: "/def-runner/hero_images/LegLA04.png"
+}
+images {
+  image: "/def-runner/hero_images/LegR00.png"
+}
+images {
+  image: "/def-runner/hero_images/LegRA01.png"
+}
+images {
+  image: "/def-runner/hero_images/LegRA02.png"
+}
+images {
+  image: "/def-runner/hero_images/LegRA03.png"
+}
+images {
+  image: "/def-runner/hero_images/LegRA04.png"
+}
+images {
+  image: "/def-runner/hero_images/ThighL.png"
+}
+images {
+  image: "/def-runner/hero_images/ThighR.png"
+}

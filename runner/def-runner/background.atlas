@@ -1,0 +1,15 @@
+images {
+  image: "/def-runner/level_images/bg.png"
+}
+images {
+  image: "/def-runner/level_images/earthlike_planet.png"
+}
+images {
+  image: "/def-runner/level_images/gas_planet.png"
+}
+images {
+  image: "/def-runner/level_images/ice_planet.png"
+}
+images {
+  image: "/def-runner/level_images/ring_planet.png"
+}

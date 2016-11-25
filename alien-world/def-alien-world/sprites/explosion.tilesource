@@ -1,0 +1,13 @@
+image: "/def-alien-world/sprites/explosion.png"
+tile_width: 64
+tile_height: 60
+tile_margin: 0
+tile_spacing: 0
+material_tag: "tile"
+collision_groups: "default"
+animations {
+  id: "explode"
+  start_tile: 1
+  end_tile: 6
+  fps: 16
+}

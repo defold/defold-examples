@@ -1,0 +1,14 @@
+image: "/def-alien-world/sprites/shoot.png"
+tile_width: 21
+tile_height: 11
+tile_margin: 0
+tile_spacing: 0
+material_tag: "tile"
+collision_groups: "default"
+animations {
+  id: "shoot"
+  start_tile: 1
+  end_tile: 3
+  playback: PLAYBACK_LOOP_PINGPONG
+  fps: 14
+}

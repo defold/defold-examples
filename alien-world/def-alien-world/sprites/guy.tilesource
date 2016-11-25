@@ -1,0 +1,21 @@
+image: "/def-alien-world/sprites/guy.png"
+tile_width: 48
+tile_height: 35
+tile_margin: 0
+tile_spacing: 0
+material_tag: "tile"
+collision_groups: "default"
+animations {
+  id: "idle"
+  start_tile: 1
+  end_tile: 3
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 4
+}
+animations {
+  id: "walk"
+  start_tile: 5
+  end_tile: 8
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 6
+}

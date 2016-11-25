@@ -1,0 +1,28 @@
+[project]
+title = Alien World
+version = 0.1
+
+[bootstrap]
+main_collection = /main/main.collectionc
+
+[input]
+game_binding = /input/game.input_bindingc
+
+[display]
+width = 1152
+height = 240
+
+[physics]
+scale = 0.02
+debug = 0
+debug_alpha = 0.01
+
+[script]
+shared_state = 1
+
+[graphics]
+max_debug_vertices = 100000
+
+[library]
+include_dirs = def-alien-world
+

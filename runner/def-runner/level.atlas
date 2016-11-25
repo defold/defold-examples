@@ -1,0 +1,26 @@
+images {
+  image: "/def-runner/level_images/ground01.png"
+}
+images {
+  image: "/def-runner/level_images/ground02.png"
+}
+images {
+  image: "/def-runner/level_images/rock_planks.png"
+}
+images {
+  image: "/def-runner/level_images/spikes.png"
+}
+images {
+  image: "/def-runner/level_images/coin.png"
+}
+images {
+  image: "/def-runner/level_images/heart.png"
+}
+animations {
+  id: "wall_right"
+}
+animations {
+  id: "wall_left"
+  flip_horizontal: 1
+}
+extrude_borders: 4

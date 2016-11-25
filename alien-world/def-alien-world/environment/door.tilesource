@@ -1,0 +1,25 @@
+image: "/def-alien-world/environment/opening-door.png"
+tile_width: 48
+tile_height: 80
+tile_margin: 0
+tile_spacing: 0
+material_tag: "tile"
+collision_groups: "default"
+animations {
+  id: "closed"
+  start_tile: 1
+  end_tile: 1
+}
+animations {
+  id: "open"
+  start_tile: 10
+  end_tile: 10
+  playback: PLAYBACK_NONE
+  fps: 10
+}
+animations {
+  id: "opening"
+  start_tile: 1
+  end_tile: 10
+  fps: 10
+}

@@ -1,0 +1,15 @@
+images {
+  image: "/def-magic-link/images/button_NO.png"
+}
+images {
+  image: "/def-magic-link/images/button-YES.png"
+}
+images {
+  image: "/def-magic-link/images/button1.png"
+}
+images {
+  image: "/def-magic-link/images/drop1_icon.png"
+}
+images {
+  image: "/def-magic-link/images/pop_up_plate.png"
+}

@@ -1,9 +1,0 @@
-images {
-  image: "/com.defold.assets.alien_world/hud/energy-bar.png"
-}
-images {
-  image: "/com.defold.assets.alien_world/hud/health-bar.png"
-}
-images {
-  image: "/com.defold.assets.alien_world/hud/textbox.png"
-}

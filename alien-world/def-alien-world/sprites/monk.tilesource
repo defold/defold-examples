@@ -1,0 +1,32 @@
+image: "/def-alien-world/sprites/monk.png"
+tile_width: 26
+tile_height: 34
+tile_margin: 0
+tile_spacing: 0
+material_tag: "tile"
+collision_groups: "default"
+animations {
+  id: "idle"
+  start_tile: 7
+  end_tile: 9
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 4
+}
+animations {
+  id: "sit"
+  start_tile: 9
+  end_tile: 11
+  fps: 2
+}
+animations {
+  id: "sitting"
+  start_tile: 11
+  end_tile: 11
+}
+animations {
+  id: "walk"
+  start_tile: 1
+  end_tile: 6
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+}

@@ -1,0 +1,27 @@
+image: "/def-alien-world/sprites/frog.png"
+tile_width: 48
+tile_height: 35
+tile_margin: 0
+tile_spacing: 0
+material_tag: "tile"
+collision_groups: "default"
+animations {
+  id: "die"
+  start_tile: 3
+  end_tile: 5
+  fps: 6
+}
+animations {
+  id: "idle"
+  start_tile: 1
+  end_tile: 2
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 4
+}
+animations {
+  id: "walk"
+  start_tile: 7
+  end_tile: 12
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+}

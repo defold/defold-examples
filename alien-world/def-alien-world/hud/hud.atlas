@@ -1,0 +1,9 @@
+images {
+  image: "/def-alien-world/hud/energy-bar.png"
+}
+images {
+  image: "/def-alien-world/hud/health-bar.png"
+}
+images {
+  image: "/def-alien-world/hud/textbox.png"
+}
