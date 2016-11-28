@@ -1,0 +1,136 @@
+go.property("color", hash("none"))
+go.property("blink", 0)
+
+local normal_scale = 0.45		-- The normal render size
+local zoomed_scale = 0.6		-- When interacted with, zoom to this
+
+local colors = {
+	[hash("yellow")] = "yellow",
+	[hash("blue")] = "blue",
+	[hash("orange")] = "orange",
+	[hash("purple")] = "purple",
+	[hash("green")] = "green",
+	[hash("red")] = "red"
+}
+
+local type_plain = hash("plain")
+local type_striped_h = hash("striped-h")
+local type_striped_v = hash("striped-v")
+local type_wrapped = hash("wrapped")
+local type_bomb = hash("bomb")
+
+
+local function blink(self)
+	local t
+	if self.blinking then
+		t = math.random() / 5 + 0.1
+	else
+		t = math.random(4) + 3
+	end
+	go.animate("#", "blink", go.PLAYBACK_ONCE_FORWARD, 1, go.EASING_LINEAR, t, 0, function(self)
+		if not self.blinking then
+			msg.post("#sprite-eyes", "disable")
+		else
+			msg.post("#sprite-eyes", "enable")
+		end
+		self.blinking = not self.blinking
+		blink(self)
+	end)
+end
+
+
+function init(self)
+	-- store original rotation
+	--
+	self.rot = go.get_rotation()
+
+	-- Render scaled down since atlas graphics is too large.
+	-- An alternative is to scale down the source material but working with
+	-- higher res images will show its benefits on retina screens.
+	--
+	go.set_scale(normal_scale)
+	msg.post("#", "sway")
+
+	-- The type property dictates what look the sprite takes.
+	--
+	if self.color ~= nil then
+		-- All fish are created plain
+		local c = colors[self.color]
+		msg.post("#sprite", "play_animation", { id = hash("fish-" .. c) })
+		msg.post("#sprite-eyes", "play_animation", { id = hash("eyes-" .. c) })
+	else
+		msg.post("#sprite", "disable")
+	end
+	
+	self.blinking = false
+	blink(self)
+end
+
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("respawn") then
+		--
+		-- Sometimes we reuse fish game objects, for example when
+		-- a fish changes to a striped one.
+		-- The "respawn" message is used for that.
+		--
+		particlefx.stop("#explosion")
+		go.set_position(message.position)
+		msg.post("#sprite", "enable")
+		msg.post("#sprite-eyes", "enable")
+		local c = colors[message.color]
+		local e = colors[message.color]
+		if message.type == type_striped_h then
+			e = "eyes-" .. e
+			c = "fish-" .. c .. "-h"
+		elseif message.type == type_striped_v then
+			e = "eyes-" .. e
+			c = "fish-" .. c .. "-v"
+		elseif message.type == type_wrapped then
+			msg.post("#sprite-eyes", "disable")
+			go.cancel_animations("#", "blink")
+			c = "fish-" .. c .. "-w"
+		elseif message.type == type_bomb then
+			e = "eyes-starfish"
+			c = "fish-starfish"
+		end
+		msg.post("#sprite", "play_animation", { id = hash(c) })
+		msg.post("#sprite-eyes", "play_animation", { id = hash(e) })
+	elseif message_id == hash("sway") then
+		local rot = go.get(".", "euler.z")
+		go.set(".", "euler.z", rot - 1)
+		local t = (math.random() * 2) + 2
+		go.cancel_animations(".", "euler.z")
+		go.animate(".", "euler.z", go.PLAYBACK_LOOP_PINGPONG, rot + 1, go.EASING_INOUTQUAD, t)
+	elseif message_id == hash("zoom_and_wobble") then
+		--
+		-- Play a simple effect used to signal that we are 
+		-- interacting with the fish.
+		--
+		go.animate(".", "scale", go.PLAYBACK_ONCE_FORWARD, zoomed_scale, go.EASING_INOUTSINE, 0.1, 0.18)
+		local rot = go.get(".", "euler.z")
+		local r = math.random() / 50
+		go.cancel_animations(".", "euler.z")
+		go.animate(".", "euler.z", go.PLAYBACK_LOOP_PINGPONG, rot - 4, go.EASING_INOUTSINE, 0.1 + r, 0.18)
+	elseif message_id == hash("reset") then
+		-- 
+		-- Reset the fish, meaning that we stop animation and
+		-- go back to normal scaling.
+		--
+		go.cancel_animations(".", "scale")
+		go.animate(".", "scale", go.PLAYBACK_ONCE_FORWARD, normal_scale, go.EASING_INOUTSINE, 0.1)
+		go.cancel_animations(".", "euler.z")
+		go.set_rotation(self.rot)
+		msg.post("#", "sway")
+	elseif message_id == hash("remove") then
+		--
+		-- This fish is being removed from the board.
+		-- Go out with a bang!
+		--
+		particlefx.play("#explosion")
+		--
+		-- Remove
+		--
+		go.delete()
+	end
+end

@@ -1,0 +1,108 @@
+images {
+  image: "/def-ocean-commotion/effects/white_dot.png"
+}
+images {
+  image: "/def-ocean-commotion/effects/white_dot2.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/fish-blue.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/fish-blue-h.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/fish-blue-v.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/fish-blue-w.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/fish-green.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/fish-green-h.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/fish-green-v.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/fish-green-w.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/fish-orange.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/fish-orange-h.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/fish-orange-v.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/fish-orange-w.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/fish-purple.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/fish-purple-h.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/fish-purple-v.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/fish-purple-w.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/fish-red.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/fish-red-h.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/fish-red-v.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/fish-red-w.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/fish-yellow.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/fish-yellow-h.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/fish-yellow-v.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/fish-yellow-w.png"
+}
+images {
+  image: "/def-ocean-commotion/effects/bubble.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/eyes-blue.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/eyes-green.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/eyes-orange.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/eyes-purple.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/eyes-red.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/eyes-starfish.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/eyes-yellow.png"
+}
+images {
+  image: "/def-ocean-commotion/fish/fish-starfish.png"
+}
+margin: 0
+extrude_borders: 2
+inner_padding: 0
