@@ -26,7 +26,7 @@ by Luis Zuno
 web: http://ansimuz.com/
 twitter: https://twitter.com/ansimuz
 
-Download or library use: https://github.com/defold/defold-examples/releases/download/0.1.0/alien-world.zip
+Download or library use: https://github.com/defold/defold-examples/releases/download/0.2.0/alien-world.zip
 
 ![Alien World](alien-world/preview.png?raw=true)
 
@@ -36,6 +36,8 @@ A test-bed for toying with match-3 game mechanics. It is currently partially mod
 
 ![Ocean Commotion](ocean-commotion/preview.png?raw=true)
 
+Download or library use: https://github.com/defold/defold-examples/releases/download/0.2.0/ocean-commotion.zip
+
 ## Magic Link
 
 A simple game where the goal is to connect a set of magic spheres. Remove adjacent bricks
@@ -43,7 +45,7 @@ of the same color to create space for the spheres to move.
 
 There is a tutorial on how to build this game step by step from scratch at http://www.defold.com/tutorials/magic-link/
 
-Download or library use: https://github.com/defold/defold-examples/releases/download/0.1.0/magic-link.zip
+Download or library use: https://github.com/defold/defold-examples/releases/download/0.2.0/magic-link.zip
 
 ![Magic Link](magic-link/preview.png?raw=true)
 
@@ -54,7 +56,7 @@ possible.
 
 There is a tutorial on how to build this game step by step from scratch at http://www.defold.com/tutorials/getting-started/
 
-Download or library use: https://github.com/defold/defold-examples/releases/download/0.1.0/runner.zip
+Download or library use: https://github.com/defold/defold-examples/releases/download/0.2.0/runner.zip
 
 ![Runner](runner/preview.png?raw=true)
 
@@ -62,6 +64,6 @@ Download or library use: https://github.com/defold/defold-examples/releases/down
 
 A handful of isolated examples showcasing various aspects of the Defold engine.
 
-Download: https://github.com/defold/defold-examples/releases/download/0.1.0/examples.zip
+Download: https://github.com/defold/defold-examples/releases/download/0.2.0/examples.zip
 
 ![Examples](examples/preview.png?raw=true)
