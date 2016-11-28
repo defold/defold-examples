@@ -30,6 +30,12 @@ Download or library use: https://github.com/defold/defold-examples/releases/down
 
 ![Alien World](alien-world/preview.png?raw=true)
 
+## Ocean Commotion
+
+A test-bed for toying with match-3 game mechanics. It is currently partially modelled after "Candy Crush" with implementation of a few boosters and a bomb.
+
+![Ocean Commotion](ocean-commotion/preview.png?raw=true)
+
 ## Magic Link
 
 A simple game where the goal is to connect a set of magic spheres. Remove adjacent bricks
