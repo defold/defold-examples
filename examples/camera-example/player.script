@@ -25,9 +25,9 @@ end
 
 function update(self, dt)
     -- Calculate new velocity based on current acceleration
-    if vmath.length(self.velocity) < max_velocity then
-	    self.velocity = self.velocity + self.acceleration * dt
-	end
+	-- Only Y component of the vectors is used
+	local new_velocity = self.velocity.y + self.acceleration.y * dt
+	self.velocity.y = math.max(-max_velocity, math.min(new_velocity, max_velocity))
 	
     -- Calculate the new positions of front and back wheels
     local front_vel = vmath.rotate(self.steer_angle, self.velocity)
