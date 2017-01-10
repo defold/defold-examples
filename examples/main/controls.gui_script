@@ -51,11 +51,13 @@ function on_message(self, message_id, message, sender)
 			end 
 			-- We got to sort out the dpad click positions by ourselves because of the button shapes.
 			local button = dpad_which_button(message.x, message.y)
-			if button and message.action.pressed then
-				msg.post("/sound#click", "play_sound")
-			end
-			if self.controls_receiver then
-				msg.post(self.controls_receiver, button)
+			if button then
+				if message.action.pressed then
+					msg.post("/sound#click", "play_sound")
+				end
+				if self.controls_receiver then
+					msg.post(self.controls_receiver, button)
+				end
 			end
 		elseif message.button == "a" or message.button == "b" then
 			if not self.controls_active then
