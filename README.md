@@ -30,6 +30,18 @@ Download or library use: https://github.com/defold/defold-examples/releases/down
 
 ![Alien World](alien-world/preview.png?raw=true)
 
+## War Battles
+
+War Battles is a complete game art pack to make a sci-fi RTS game in the style of the 16-bit console era. It includes everything you need, from environment tilemaps, unit sprites, resource sprites, HUD elements, icons and effects.
+
+by Luis Zuno
+web: http://ansimuz.com/
+twitter: https://twitter.com/ansimuz
+
+Download or library use: https://github.com/defold/defold-examples/releases/download/0.2.0/war-battles.zip
+
+![War Battles](war-battles/preview.png?raw=true)
+
 ## Ocean Commotion
 
 A test-bed for toying with match-3 game mechanics. It is currently partially modelled after "Candy Crush" with implementation of a few boosters and a bomb.
