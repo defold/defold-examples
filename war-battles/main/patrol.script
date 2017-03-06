@@ -1,0 +1,84 @@
+go.property("unittype", hash("infantry"))
+go.property("pattern", hash("regular"))
+
+local unitnames = { [hash("infantry")] = "infantry",
+					[hash("elite-soldier")] = "elite-soldier",
+					[hash("helicopter")] = "helicopter" }
+
+function init(self)
+	if self.unittype == hash("helicopter") then
+		self.units = { 	go.get_id("unit1") }
+	else
+		self.units = { 	go.get_id("unit1"),
+						go.get_id("unit2"),
+						go.get_id("unit3"),
+						go.get_id("unit4"),
+						go.get_id("unit5"),
+						go.get_id("unit6"),
+						go.get_id("unit7") }
+	end
+		
+	self.unitname = unitnames[self.unittype]
+	
+	if self.pattern == hash("helicopter") then
+		self.patterns = { 	{ anim = "n", dir = vmath.vector3(0, 1, 0) }, 
+							{ anim = "ne", dir = vmath.vector3(1, 1, 0) }, 
+							{ anim = "e", dir = vmath.vector3(1, 0, 0) }, 
+							{ anim = "se", dir = vmath.vector3(1, -1, 0) }, 
+							{ anim = "s", dir = vmath.vector3(0, -1, 0) }, 
+							{ anim = "sw", dir = vmath.vector3(-1, -1, 0) }, 
+							{ anim = "w", dir = vmath.vector3(-1, 0, 0) }, 
+							{ anim = "sw", dir = vmath.vector3(-1, -1, 0) }, 
+							{ anim = "s", dir = vmath.vector3(0, -1, 0) }, 
+							{ anim = "se", dir = vmath.vector3(1, -1, 0) }, 
+							{ anim = "e", dir = vmath.vector3(1, 0, 0) }, 
+							{ anim = "ne", dir = vmath.vector3(1, 1, 0) }, 
+						 	{ anim = "n", dir = vmath.vector3(0, 1, 0) }, 
+							{ anim = "nw", dir = vmath.vector3(-1, 1, 0) },
+							{ anim = "w", dir = vmath.vector3(-1, 0, 0) }, 
+							{ anim = "nw", dir = vmath.vector3(-1, 1, 0) } }
+		self.patternindex = 1
+		self.speed = 24
+		self.turntime = 1.8
+	elseif self.pattern == hash("regular") then
+		self.patterns = { 	{ anim = "n", dir = vmath.vector3(0, 1, 0) }, 
+							{ anim = "ne", dir = vmath.vector3(1, 1, 0) }, 
+							{ anim = "e", dir = vmath.vector3(1, 0, 0) }, 
+							{ anim = "se", dir = vmath.vector3(1, -1, 0) }, 
+							{ anim = "s", dir = vmath.vector3(0, -1, 0) }, 
+							{ anim = "sw", dir = vmath.vector3(-1, -1, 0) }, 
+							{ anim = "w", dir = vmath.vector3(-1, 0, 0) }, 
+							{ anim = "nw", dir = vmath.vector3(-1, 1, 0) } }
+							
+		self.patternindex = 1
+		self.speed = 16
+		self.turntime = 2
+	end
+	
+	
+	self.t = 0
+end
+
+function update(self, dt)
+	local p = self.patterns[self.patternindex]
+
+	local velocity = p.dir * self.speed * dt
+	for _, unit in ipairs(self.units) do
+		pos = go.get_position(unit)
+    	go.set_position(pos + velocity, unit)
+    	if self.t == 0 then
+    		local url = msg.url(nil, unit, "sprite")
+    		msg.post(url, "play_animation", { id = hash(self.unitname .. "-" .. p.anim) })
+    	end
+    end
+
+    self.t = self.t + dt
+    if self.t > self.turntime then
+    	self.patternindex = self.patternindex + 1
+    	if self.patternindex > #self.patterns then
+    		self.patternindex = 1
+    	end
+    	self.t = 0
+    end
+
+end

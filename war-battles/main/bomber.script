@@ -1,0 +1,14 @@
+function init(self)
+	self.t = math.random(3) + 1
+end
+
+function update(self, dt)
+	self.t = self.t - dt
+	
+	if self.t <= 0 then
+		local x = math.random(300) + 500
+		local y = math.random(200) + 300
+		factory.create("#explosionfactory", vmath.vector3(x, y, 0))
+		self.t = math.random(3) + 1
+	end
+end

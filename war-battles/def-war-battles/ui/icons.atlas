@@ -1,0 +1,171 @@
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/01.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/02.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/03.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/04.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/05.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/06.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/07.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/08.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/09.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/10.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/11.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/12.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/13.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/14.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/15.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/16.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/17.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/18.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/19.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/20.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/21.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/22.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/23.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/24.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/25.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/26.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/27.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/28.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/29.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/30.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/31.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/32.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/33.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/34.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/35.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/36.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/37.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/38.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/39.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/40.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/41.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/42.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/43.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/44.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/45.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/46.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/47.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/48.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/49.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/50.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/51.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/52.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/53.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/54.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/55.png"
+}
+images {
+  image: "/def-war-battles/ui/unit-menu-icons/56.png"
+}
+margin: 0
+extrude_borders: 0
+inner_padding: 0

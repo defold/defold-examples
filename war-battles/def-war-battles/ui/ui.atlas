@@ -1,0 +1,287 @@
+images {
+  image: "/def-war-battles/ui/hud-panel.png"
+}
+images {
+  image: "/def-war-battles/ui/text-box.png"
+}
+images {
+  image: "/def-war-battles/ui/menu/menu-window.png"
+}
+images {
+  image: "/def-war-battles/ui/title-screen/background.png"
+}
+images {
+  image: "/def-war-battles/ui/title-screen/title.png"
+}
+images {
+  image: "/def-war-battles/ui/title-screen/title-button.png"
+}
+images {
+  image: "/def-war-battles/ui/victory.png"
+}
+animations {
+  id: "building-selection"
+  images {
+    image: "/def-war-battles/ui/building-selection/1.png"
+  }
+  images {
+    image: "/def-war-battles/ui/building-selection/2.png"
+  }
+  images {
+    image: "/def-war-battles/ui/building-selection/3.png"
+  }
+  images {
+    image: "/def-war-battles/ui/building-selection/4.png"
+  }
+  images {
+    image: "/def-war-battles/ui/building-selection/5.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "unit-selection"
+  images {
+    image: "/def-war-battles/ui/unit-selection/1.png"
+  }
+  images {
+    image: "/def-war-battles/ui/unit-selection/2.png"
+  }
+  images {
+    image: "/def-war-battles/ui/unit-selection/3.png"
+  }
+  images {
+    image: "/def-war-battles/ui/unit-selection/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 16
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "vehicle-selection"
+  images {
+    image: "/def-war-battles/ui/vehicle-selection/1.png"
+  }
+  images {
+    image: "/def-war-battles/ui/vehicle-selection/2.png"
+  }
+  images {
+    image: "/def-war-battles/ui/vehicle-selection/3.png"
+  }
+  images {
+    image: "/def-war-battles/ui/vehicle-selection/4.png"
+  }
+  images {
+    image: "/def-war-battles/ui/vehicle-selection/5.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 12
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "button-1"
+  images {
+    image: "/def-war-battles/ui/menu/buttons/1.png"
+  }
+  playback: PLAYBACK_NONE
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "button-2"
+  images {
+    image: "/def-war-battles/ui/menu/buttons/2.png"
+  }
+  playback: PLAYBACK_NONE
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "button-3"
+  images {
+    image: "/def-war-battles/ui/menu/buttons/3.png"
+  }
+  playback: PLAYBACK_NONE
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "panel-1"
+  images {
+    image: "/def-war-battles/ui/menu/panel/1.png"
+  }
+  playback: PLAYBACK_NONE
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "panel-2"
+  images {
+    image: "/def-war-battles/ui/menu/panel/2.png"
+  }
+  playback: PLAYBACK_NONE
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "panel-3"
+  images {
+    image: "/def-war-battles/ui/menu/panel/3.png"
+  }
+  playback: PLAYBACK_NONE
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "driver-happy"
+  images {
+    image: "/def-war-battles/ui/faces/driver/happy.png"
+  }
+  playback: PLAYBACK_NONE
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "driver-angry"
+  images {
+    image: "/def-war-battles/ui/faces/driver/angry.png"
+  }
+  playback: PLAYBACK_NONE
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "driver-sad"
+  images {
+    image: "/def-war-battles/ui/faces/driver/sad.png"
+  }
+  playback: PLAYBACK_NONE
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "operator-happy"
+  images {
+    image: "/def-war-battles/ui/faces/operator/happy.png"
+  }
+  playback: PLAYBACK_NONE
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "operator-angry"
+  images {
+    image: "/def-war-battles/ui/faces/operator/angry.png"
+  }
+  playback: PLAYBACK_NONE
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "operator-sad"
+  images {
+    image: "/def-war-battles/ui/faces/operator/sad.png"
+  }
+  playback: PLAYBACK_NONE
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "captain-happy"
+  images {
+    image: "/def-war-battles/ui/faces/captain/happy.png"
+  }
+  playback: PLAYBACK_NONE
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "captain-angry"
+  images {
+    image: "/def-war-battles/ui/faces/captain/angry.png"
+  }
+  playback: PLAYBACK_NONE
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "captain-sad"
+  images {
+    image: "/def-war-battles/ui/faces/captain/sad.png"
+  }
+  playback: PLAYBACK_NONE
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "health-bar-5"
+  images {
+    image: "/def-war-battles/ui/health-bar/1.png"
+  }
+  playback: PLAYBACK_NONE
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "health-bar-4"
+  images {
+    image: "/def-war-battles/ui/health-bar/2.png"
+  }
+  playback: PLAYBACK_NONE
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "health-bar-3"
+  images {
+    image: "/def-war-battles/ui/health-bar/3.png"
+  }
+  playback: PLAYBACK_NONE
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "health-bar-2"
+  images {
+    image: "/def-war-battles/ui/health-bar/4.png"
+  }
+  playback: PLAYBACK_NONE
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "health-bar-1"
+  images {
+    image: "/def-war-battles/ui/health-bar/5.png"
+  }
+  playback: PLAYBACK_NONE
+  fps: 30
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+margin: 0
+extrude_borders: 1
+inner_padding: 0

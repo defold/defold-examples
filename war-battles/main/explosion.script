@@ -1,0 +1,9 @@
+function init(self)
+	msg.post("#sprite", "play_animation", { id = hash("explosion") })
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("animation_done") then
+		go.delete()
+	end
+end

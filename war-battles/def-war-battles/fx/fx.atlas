@@ -1,0 +1,90 @@
+animations {
+  id: "explosion"
+  images {
+    image: "/def-war-battles/fx/explosion/1.png"
+  }
+  images {
+    image: "/def-war-battles/fx/explosion/2.png"
+  }
+  images {
+    image: "/def-war-battles/fx/explosion/3.png"
+  }
+  images {
+    image: "/def-war-battles/fx/explosion/4.png"
+  }
+  images {
+    image: "/def-war-battles/fx/explosion/5.png"
+  }
+  images {
+    image: "/def-war-battles/fx/explosion/6.png"
+  }
+  images {
+    image: "/def-war-battles/fx/explosion/7.png"
+  }
+  images {
+    image: "/def-war-battles/fx/explosion/8.png"
+  }
+  images {
+    image: "/def-war-battles/fx/explosion/9.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 12
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "healing"
+  images {
+    image: "/def-war-battles/fx/healing/1.png"
+  }
+  images {
+    image: "/def-war-battles/fx/healing/2.png"
+  }
+  images {
+    image: "/def-war-battles/fx/healing/3.png"
+  }
+  images {
+    image: "/def-war-battles/fx/healing/4.png"
+  }
+  images {
+    image: "/def-war-battles/fx/healing/5.png"
+  }
+  images {
+    image: "/def-war-battles/fx/healing/6.png"
+  }
+  images {
+    image: "/def-war-battles/fx/healing/7.png"
+  }
+  images {
+    image: "/def-war-battles/fx/healing/8.png"
+  }
+  images {
+    image: "/def-war-battles/fx/healing/9.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 12
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "healing-source"
+  images {
+    image: "/def-war-battles/fx/healing-source/1.png"
+  }
+  images {
+    image: "/def-war-battles/fx/healing-source/2.png"
+  }
+  images {
+    image: "/def-war-battles/fx/healing-source/3.png"
+  }
+  images {
+    image: "/def-war-battles/fx/healing-source/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 12
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+margin: 0
+extrude_borders: 0
+inner_padding: 0

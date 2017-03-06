@@ -1,0 +1,923 @@
+animations {
+  id: "helicopter-n"
+  images {
+    image: "/def-war-battles/units/helicopter/up/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/helicopter/up/2.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "helicopter-s"
+  images {
+    image: "/def-war-battles/units/helicopter/down/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/helicopter/down/2.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "helicopter-e"
+  images {
+    image: "/def-war-battles/units/helicopter/side/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/helicopter/side/2.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "helicopter-w"
+  images {
+    image: "/def-war-battles/units/helicopter/side/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/helicopter/side/2.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "helicopter-ne"
+  images {
+    image: "/def-war-battles/units/helicopter/up-d/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/helicopter/up-d/2.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "helicopter-nw"
+  images {
+    image: "/def-war-battles/units/helicopter/up-d/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/helicopter/up-d/2.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "helicopter-se"
+  images {
+    image: "/def-war-battles/units/helicopter/down-d/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/helicopter/down-d/2.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "helicopter-sw"
+  images {
+    image: "/def-war-battles/units/helicopter/down-d/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/helicopter/down-d/2.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "tank-n"
+  images {
+    image: "/def-war-battles/units/tank/up/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/tank/up/2.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "tank-s"
+  images {
+    image: "/def-war-battles/units/tank/down/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/tank/down/2.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "tank-e"
+  images {
+    image: "/def-war-battles/units/tank/side/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/tank/side/2.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "tank-w"
+  images {
+    image: "/def-war-battles/units/tank/side/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/tank/side/2.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "tank-ne"
+  images {
+    image: "/def-war-battles/units/tank/up-d/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/tank/up-d/2.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "tank-nw"
+  images {
+    image: "/def-war-battles/units/tank/up-d/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/tank/up-d/2.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "tank-se"
+  images {
+    image: "/def-war-battles/units/tank/down-d/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/tank/down-d/2.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "tank-sw"
+  images {
+    image: "/def-war-battles/units/tank/down-d/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/tank/down-d/2.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "vehicle-n"
+  images {
+    image: "/def-war-battles/units/vehicle/up/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/vehicle/up/2.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "vehicle-s"
+  images {
+    image: "/def-war-battles/units/vehicle/down/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/vehicle/down/2.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "vehicle-e"
+  images {
+    image: "/def-war-battles/units/vehicle/side/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/vehicle/side/2.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "vehicle-w"
+  images {
+    image: "/def-war-battles/units/vehicle/side/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/vehicle/side/2.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "vehicle-ne"
+  images {
+    image: "/def-war-battles/units/vehicle/up-d/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/vehicle/up-d/2.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "vehicle-nw"
+  images {
+    image: "/def-war-battles/units/vehicle/up-d/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/vehicle/up-d/2.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "vehicle-se"
+  images {
+    image: "/def-war-battles/units/vehicle/down-d/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/vehicle/down-d/2.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "vehicle-sw"
+  images {
+    image: "/def-war-battles/units/vehicle/down-d/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/vehicle/down-d/2.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "worker-n"
+  images {
+    image: "/def-war-battles/units/worker/up/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/worker/up/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/worker/up/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/worker/up/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "worker-s"
+  images {
+    image: "/def-war-battles/units/worker/down/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/worker/down/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/worker/down/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/worker/down/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "worker-e"
+  images {
+    image: "/def-war-battles/units/worker/side/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/worker/side/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/worker/side/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/worker/side/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "worker-w"
+  images {
+    image: "/def-war-battles/units/worker/side/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/worker/side/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/worker/side/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/worker/side/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "worker-ne"
+  images {
+    image: "/def-war-battles/units/worker/up-d/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/worker/up-d/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/worker/up-d/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/worker/up-d/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "worker-nw"
+  images {
+    image: "/def-war-battles/units/worker/up-d/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/worker/up-d/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/worker/up-d/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/worker/up-d/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "worker-se"
+  images {
+    image: "/def-war-battles/units/worker/down-d/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/worker/down-d/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/worker/down-d/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/worker/down-d/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "worker-sw"
+  images {
+    image: "/def-war-battles/units/worker/down-d/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/worker/down-d/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/worker/down-d/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/worker/down-d/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "medic-n"
+  images {
+    image: "/def-war-battles/units/medic/up/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/medic/up/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/medic/up/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/medic/up/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "medic-s"
+  images {
+    image: "/def-war-battles/units/medic/down/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/medic/down/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/medic/down/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/medic/down/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "medic-e"
+  images {
+    image: "/def-war-battles/units/medic/side/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/medic/side/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/medic/side/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/medic/side/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "medic-w"
+  images {
+    image: "/def-war-battles/units/medic/side/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/medic/side/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/medic/side/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/medic/side/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "medic-ne"
+  images {
+    image: "/def-war-battles/units/medic/up-d/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/medic/up-d/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/medic/up-d/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/medic/up-d/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "medic-nw"
+  images {
+    image: "/def-war-battles/units/medic/up-d/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/medic/up-d/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/medic/up-d/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/medic/up-d/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "medic-se"
+  images {
+    image: "/def-war-battles/units/medic/down-d/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/medic/down-d/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/medic/down-d/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/medic/down-d/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "medic-sw"
+  images {
+    image: "/def-war-battles/units/medic/down-d/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/medic/down-d/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/medic/down-d/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/medic/down-d/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "elite-soldier-n"
+  images {
+    image: "/def-war-battles/units/elite-soldier/up/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/elite-soldier/up/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/elite-soldier/up/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/elite-soldier/up/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "elite-soldier-s"
+  images {
+    image: "/def-war-battles/units/elite-soldier/down/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/elite-soldier/down/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/elite-soldier/down/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/elite-soldier/down/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "elite-soldier-e"
+  images {
+    image: "/def-war-battles/units/elite-soldier/side/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/elite-soldier/side/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/elite-soldier/side/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/elite-soldier/side/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "elite-soldier-w"
+  images {
+    image: "/def-war-battles/units/elite-soldier/side/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/elite-soldier/side/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/elite-soldier/side/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/elite-soldier/side/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "elite-soldier-ne"
+  images {
+    image: "/def-war-battles/units/elite-soldier/up-d/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/elite-soldier/up-d/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/elite-soldier/up-d/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/elite-soldier/up-d/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "elite-soldier-nw"
+  images {
+    image: "/def-war-battles/units/elite-soldier/up-d/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/elite-soldier/up-d/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/elite-soldier/up-d/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/elite-soldier/up-d/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "elite-soldier-se"
+  images {
+    image: "/def-war-battles/units/elite-soldier/down-d/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/elite-soldier/down-d/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/elite-soldier/down-d/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/elite-soldier/down-d/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "elite-soldier-sw"
+  images {
+    image: "/def-war-battles/units/elite-soldier/down-d/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/elite-soldier/down-d/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/elite-soldier/down-d/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/elite-soldier/down-d/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "infantry-n"
+  images {
+    image: "/def-war-battles/units/infantry/up/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/infantry/up/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/infantry/up/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/infantry/up/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "infantry-s"
+  images {
+    image: "/def-war-battles/units/infantry/down/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/infantry/down/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/infantry/down/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/infantry/down/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "infantry-e"
+  images {
+    image: "/def-war-battles/units/infantry/side/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/infantry/side/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/infantry/side/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/infantry/side/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "infantry-w"
+  images {
+    image: "/def-war-battles/units/infantry/side/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/infantry/side/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/infantry/side/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/infantry/side/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "infantry-ne"
+  images {
+    image: "/def-war-battles/units/infantry/up-d/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/infantry/up-d/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/infantry/up-d/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/infantry/up-d/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "infantry-nw"
+  images {
+    image: "/def-war-battles/units/infantry/up-d/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/infantry/up-d/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/infantry/up-d/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/infantry/up-d/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+animations {
+  id: "infantry-se"
+  images {
+    image: "/def-war-battles/units/infantry/down-d/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/infantry/down-d/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/infantry/down-d/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/infantry/down-d/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "infantry-sw"
+  images {
+    image: "/def-war-battles/units/infantry/down-d/1.png"
+  }
+  images {
+    image: "/def-war-battles/units/infantry/down-d/2.png"
+  }
+  images {
+    image: "/def-war-battles/units/infantry/down-d/3.png"
+  }
+  images {
+    image: "/def-war-battles/units/infantry/down-d/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 1
+  flip_vertical: 0
+}
+margin: 0
+extrude_borders: 0
+inner_padding: 0

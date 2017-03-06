@@ -1,0 +1,14 @@
+function init(self)
+	msg.post("#camera", "acquire_camera_focus")
+
+	local from = vmath.vector3(-120, -180, 0)
+	local to = vmath.vector3(1120, 0, 0)
+	
+	go.set_position(from, "/camera")
+	go.animate("/camera", "position", go.PLAYBACK_LOOP_PINGPONG, to, go.EASING_INOUTQUAD, 30)
+end
+
+function update(self, dt)
+    -- Add update code here
+    -- Remove this function if not needed
+end

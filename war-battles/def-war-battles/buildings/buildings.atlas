@@ -1,0 +1,310 @@
+animations {
+  id: "barracks-idle"
+  images {
+    image: "/def-war-battles/buildings/barracks/1.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/barracks/2.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/barracks/3.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/barracks/4.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/barracks/5.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/barracks/6.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "command-center-idle"
+  images {
+    image: "/def-war-battles/buildings/command-center/1.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/command-center/2.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/command-center/3.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/command-center/4.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/command-center/5.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/command-center/6.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "factory-idle"
+  images {
+    image: "/def-war-battles/buildings/factory/1.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/factory/2.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/factory/3.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/factory/4.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/factory/5.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/factory/6.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "heliport-idle"
+  images {
+    image: "/def-war-battles/buildings/heliport/1.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/heliport/2.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/heliport/3.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/heliport/4.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/heliport/5.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/heliport/6.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/heliport/7.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "medic-bay-idle"
+  images {
+    image: "/def-war-battles/buildings/medic-bay/1.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/medic-bay/2.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/medic-bay/3.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/medic-bay/4.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "refinery-idle"
+  images {
+    image: "/def-war-battles/buildings/refinery/1.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/refinery/2.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/refinery/3.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "supply-depot-idle"
+  images {
+    image: "/def-war-battles/buildings/supply-depot/1.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/supply-depot/2.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "turret-idle"
+  images {
+    image: "/def-war-battles/buildings/turret/1.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/turret/2.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/turret/3.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/turret/4.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/turret/5.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/turret/6.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/turret/7.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/turret/8.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "turret-air-idle"
+  images {
+    image: "/def-war-battles/buildings/turret-air/1.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/turret-air/2.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/turret-air/3.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/turret-air/4.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/turret-air/5.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/turret-air/6.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/turret-air/7.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/turret-air/8.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "turret-rocket"
+  images {
+    image: "/def-war-battles/buildings/turret-rocket/1.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/turret-rocket/2.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/turret-rocket/3.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 16
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "under-construction-start"
+  images {
+    image: "/def-war-battles/buildings/under-construction/1.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/under-construction/2.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/under-construction/3.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/under-construction/4.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/under-construction/5.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 4
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "under-construction-idle"
+  images {
+    image: "/def-war-battles/buildings/under-construction/6.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/under-construction/7.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/under-construction/8.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/under-construction/9.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/under-construction/10.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/under-construction/11.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/under-construction/12.png"
+  }
+  playback: PLAYBACK_LOOP_FORWARD
+  fps: 4
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+animations {
+  id: "under-construction-end"
+  images {
+    image: "/def-war-battles/buildings/under-construction/13.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/under-construction/14.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/under-construction/15.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/under-construction/16.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/under-construction/17.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/under-construction/18.png"
+  }
+  images {
+    image: "/def-war-battles/buildings/under-construction/19.png"
+  }
+  playback: PLAYBACK_ONCE_FORWARD
+  fps: 8
+  flip_horizontal: 0
+  flip_vertical: 0
+}
+margin: 0
+extrude_borders: 1
+inner_padding: 0
