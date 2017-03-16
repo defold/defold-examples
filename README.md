@@ -10,7 +10,7 @@ The license for the "Alien World", "War Battles", "Ocean Commotion", "Magic Link
 
 The "Examples" project contains assets from http://kenney.nl/ that public domain (Creative Commons Zero) licensed. See https://creativecommons.org/publicdomain/zero/1.0/
 
-## How to include the assets in a project
+## How do I include the assets in my projects?
 
 If you are not comfortable using Git, you can download any of the examples separately in a
 zip archive.
