@@ -84,6 +84,9 @@ Download or library use: https://github.com/defold/defold-examples/releases/down
 
 A handful of isolated examples showcasing various aspects of the Defold engine.
 
+Graphics by Kenney
+web: http://kenney.nl
+
 Download: https://github.com/defold/defold-examples/releases/download/0.2.0/examples.zip
 
 ![Examples](examples/preview.png?raw=true)
