@@ -244,16 +244,12 @@ nodes {
   parent: "stencil"
   layer: ""
   inherit_alpha: true
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
-  size_mode: SIZE_MODE_MANUAL
 }
 nodes {
   position {
@@ -311,16 +307,12 @@ nodes {
   parent: "stencil"
   layer: ""
   inherit_alpha: true
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
-  size_mode: SIZE_MODE_MANUAL
 }
 nodes {
   position {
@@ -487,16 +479,12 @@ nodes {
   parent: "slice9"
   layer: ""
   inherit_alpha: true
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
-  size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
@@ -530,21 +518,12 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEMPLATE
-  blend_mode: BLEND_MODE_ALPHA
   id: "button1"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
   layer: ""
   inherit_alpha: true
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
   alpha: 1.0
   template: "/gui-example/button.gui"
   template_node_child: false
-  size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
@@ -657,9 +636,6 @@ nodes {
   parent: "button1/button_down"
   layer: ""
   inherit_alpha: false
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
@@ -667,7 +643,6 @@ nodes {
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0
-  size_mode: SIZE_MODE_MANUAL
 }
 nodes {
   position {
@@ -780,9 +755,6 @@ nodes {
   parent: "button1/button_up"
   layer: ""
   inherit_alpha: false
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
@@ -790,7 +762,6 @@ nodes {
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0
-  size_mode: SIZE_MODE_MANUAL
 }
 nodes {
   position {
@@ -824,21 +795,12 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEMPLATE
-  blend_mode: BLEND_MODE_ALPHA
   id: "button2"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
   layer: ""
   inherit_alpha: true
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
   alpha: 1.0
   template: "/gui-example/button.gui"
   template_node_child: false
-  size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
@@ -951,9 +913,6 @@ nodes {
   parent: "button2/button_down"
   layer: ""
   inherit_alpha: false
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
@@ -961,7 +920,6 @@ nodes {
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0
-  size_mode: SIZE_MODE_MANUAL
 }
 nodes {
   position {
@@ -1074,9 +1032,6 @@ nodes {
   parent: "button2/button_up"
   layer: ""
   inherit_alpha: false
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
@@ -1084,7 +1039,6 @@ nodes {
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0
-  size_mode: SIZE_MODE_MANUAL
 }
 nodes {
   position {
@@ -1118,21 +1072,12 @@ nodes {
     w: 1.0
   }
   type: TYPE_TEMPLATE
-  blend_mode: BLEND_MODE_ALPHA
   id: "button3"
-  xanchor: XANCHOR_NONE
-  yanchor: YANCHOR_NONE
-  pivot: PIVOT_CENTER
-  adjust_mode: ADJUST_MODE_FIT
   layer: ""
   inherit_alpha: true
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
   alpha: 1.0
   template: "/gui-example/button.gui"
   template_node_child: false
-  size_mode: SIZE_MODE_AUTO
 }
 nodes {
   position {
@@ -1246,9 +1191,6 @@ nodes {
   parent: "button3/button_down"
   layer: ""
   inherit_alpha: false
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
@@ -1256,7 +1198,6 @@ nodes {
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0
-  size_mode: SIZE_MODE_MANUAL
 }
 nodes {
   position {
@@ -1370,9 +1311,6 @@ nodes {
   parent: "button3/button_up"
   layer: ""
   inherit_alpha: false
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
@@ -1380,7 +1318,6 @@ nodes {
   template_node_child: true
   text_leading: 1.0
   text_tracking: 0.0
-  size_mode: SIZE_MODE_MANUAL
 }
 nodes {
   position {
@@ -1489,16 +1426,12 @@ nodes {
   line_break: false
   layer: ""
   inherit_alpha: true
-  clipping_mode: CLIPPING_MODE_NONE
-  clipping_visible: true
-  clipping_inverted: false
   alpha: 1.0
   outline_alpha: 1.0
   shadow_alpha: 1.0
   template_node_child: false
   text_leading: 1.0
   text_tracking: 0.0
-  size_mode: SIZE_MODE_AUTO
 }
 material: "/builtins/materials/gui.material"
 adjust_reference: ADJUST_REFERENCE_LEGACY

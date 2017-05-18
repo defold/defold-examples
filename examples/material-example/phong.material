@@ -7,10 +7,6 @@ vertex_constants {
   type: CONSTANT_TYPE_VIEWPROJ
 }
 vertex_constants {
-  name: "world"
-  type: CONSTANT_TYPE_WORLD
-}
-vertex_constants {
   name: "modelview"
   type: CONSTANT_TYPE_WORLDVIEW
 }

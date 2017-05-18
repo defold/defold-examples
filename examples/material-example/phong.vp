@@ -1,5 +1,4 @@
 uniform mediump mat4 view_proj;
-uniform mediump mat4 world;
 uniform mediump mat4 modelview;
 uniform mediump mat4 normalMat;
 
@@ -12,7 +11,7 @@ varying mediump vec3 var_position;
 varying mediump vec3 var_normal;
 
 void main(){
-	gl_Position = view_proj * world * vec4(position.xyz, 1.0);
+	gl_Position = view_proj * vec4(position.xyz, 1.0);
 
  	vec4 vertPos4 = modelview * vec4(position, 1.0);
     var_position = vec3(vertPos4) / vertPos4.w;
