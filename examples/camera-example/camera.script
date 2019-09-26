@@ -13,6 +13,10 @@ function init(self)
 	self.look_at = self.pos
 end
 
+function final(self)
+	msg.post("main:/controls#gui", "hide_controls")
+end
+
 function update(self, dt)
 	-- Calculate a new position based on current pos interpolated towards current
 	-- target position.
