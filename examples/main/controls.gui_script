@@ -31,9 +31,9 @@ function on_message(self, message_id, message, sender)
 	if message_id == hash("aquire_controls") then
 		self.controls_receiver = sender
 	elseif message_id == hash("on") then
-	    msg.post(nil, "acquire_input_focus")
+	    msg.post(".", "acquire_input_focus")
 	elseif message_id == hash("off") then
-	    msg.post(nil, "release_input_focus")
+	    msg.post(".", "release_input_focus")
 	elseif message_id == hash("show_controls") then
 		gui.set_enabled(gui.get_node("dpad"), true)
 		gui.set_enabled(gui.get_node("a"), true)
