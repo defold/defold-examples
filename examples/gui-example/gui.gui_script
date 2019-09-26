@@ -35,7 +35,7 @@ function init(self)
 	gui.animate(cloud, "position.x", -300, gui.EASING_INOUTSINE, 10, 0, nil, gui.PLAYBACK_LOOP_PINGPONG)
 	
 	-- Dynamically create node
-	local imgurl = "http://www.defold.com/static/base/press-kit/Defold-logotypes_RGB-Original_Illustrator-01.png"
+	local imgurl = "https://forum.defold.com/uploads/default/original/2X/6/60ff75daecbc0513b431bc4904cbb82b456c7392.png"
 	http.request(imgurl, "GET", function(self, id, response)
 			local img = image.load(response.response)
 			local tx = gui.new_texture("logo", img.width, img.height, img.type, img.buffer)
