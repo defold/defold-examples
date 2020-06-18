@@ -4,9 +4,7 @@ Welcome to the Defold examples repo. Here you find a variety of Defold projects 
 
 ## How am I allowed to use these assets?
 
-The license for the assets and the "Alien World", "War Battles", "Ocean Commotion", "Magic Link" and "Runner" projects can be found at http://www.defold.com/terms-and-conditions/#3-licence-to-the-defold-additional-materials.
-
-The "Examples" project contains assets from http://kenney.nl/ that public domain (Creative Commons Zero) licensed. See https://creativecommons.org/publicdomain/zero/1.0/
+Refer to [LICENSE.txt](/LICENSE.txt)
 
 ## How do I include the assets in my projects?
 
