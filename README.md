@@ -65,17 +65,6 @@ Download or library use: https://github.com/defold/defold-examples/releases/down
 
 ![Magic Link](magic-link/preview.png?raw=true)
 
-## Runner
-
-A barebones runner game where the goal is to jump on platforms and collect as many coins as
-possible.
-
-There is a tutorial on how to build this game step by step from scratch at http://www.defold.com/tutorials/getting-started/
-
-Download or library use: https://github.com/defold/defold-examples/releases/download/0.2.0/runner.zip
-
-![Runner](runner/preview.png?raw=true)
-
 ## Examples
 
 A handful of isolated examples showcasing various aspects of the Defold engine.
