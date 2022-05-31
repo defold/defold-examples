@@ -2,10 +2,6 @@ varying mediump vec2 var_texcoord0;
 varying mediump vec3 var_position;
 varying mediump vec3 var_normal;
 
-uniform lowp vec4 eye;
-uniform lowp sampler2D DIFFUSE_TEXTURE;
-uniform lowp sampler2D PASS_TEXTURE;
-
 const vec3 lightPos = vec3(1.0,1.0,1.0);
 const vec3 diffuseColor = vec3(0.5, 0.5, 0.5);
 const vec3 specColor = vec3(0.7, 0.7, 0.7);
