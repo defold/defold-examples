@@ -21,3 +21,6 @@ shared_state = 1
 [library]
 include_dirs = def-war-battles
 
+[tilemap]
+max_tile_count = 16384
+

@@ -9,6 +9,7 @@ layers {
     tile: 4
     h_flip: 0
     v_flip: 0
+    rotate90: 0
   }
   cell {
     x: 1
@@ -16,6 +17,7 @@ layers {
     tile: 5
     h_flip: 0
     v_flip: 0
+    rotate90: 0
   }
   cell {
     x: 2
@@ -23,6 +25,7 @@ layers {
     tile: 6
     h_flip: 0
     v_flip: 0
+    rotate90: 0
   }
   cell {
     x: 3
@@ -30,13 +33,7 @@ layers {
     tile: 7
     h_flip: 0
     v_flip: 0
-  }
-  cell {
-    x: -4
-    y: 0
-    tile: 11
-    h_flip: 0
-    v_flip: 0
+    rotate90: 0
   }
   cell {
     x: 4
@@ -44,13 +41,7 @@ layers {
     tile: 8
     h_flip: 0
     v_flip: 0
-  }
-  cell {
-    x: -5
-    y: 0
-    tile: 10
-    h_flip: 0
-    v_flip: 0
+    rotate90: 0
   }
   cell {
     x: 5
@@ -58,13 +49,7 @@ layers {
     tile: 9
     h_flip: 0
     v_flip: 0
-  }
-  cell {
-    x: -6
-    y: 0
-    tile: 9
-    h_flip: 0
-    v_flip: 0
+    rotate90: 0
   }
   cell {
     x: 6
@@ -72,13 +57,7 @@ layers {
     tile: 10
     h_flip: 0
     v_flip: 0
-  }
-  cell {
-    x: -7
-    y: 0
-    tile: 8
-    h_flip: 0
-    v_flip: 0
+    rotate90: 0
   }
   cell {
     x: 7
@@ -86,20 +65,7 @@ layers {
     tile: 11
     h_flip: 0
     v_flip: 0
-  }
-  cell {
-    x: -8
-    y: 0
-    tile: 7
-    h_flip: 0
-    v_flip: 0
-  }
-  cell {
-    x: -9
-    y: 0
-    tile: 6
-    h_flip: 0
-    v_flip: 0
+    rotate90: 0
   }
   cell {
     x: 9
@@ -107,13 +73,7 @@ layers {
     tile: 4
     h_flip: 0
     v_flip: 0
-  }
-  cell {
-    x: -10
-    y: 0
-    tile: 5
-    h_flip: 0
-    v_flip: 0
+    rotate90: 0
   }
   cell {
     x: 10
@@ -121,13 +81,7 @@ layers {
     tile: 5
     h_flip: 0
     v_flip: 0
-  }
-  cell {
-    x: -11
-    y: 0
-    tile: 4
-    h_flip: 0
-    v_flip: 0
+    rotate90: 0
   }
   cell {
     x: 11
@@ -135,6 +89,7 @@ layers {
     tile: 6
     h_flip: 0
     v_flip: 0
+    rotate90: 0
   }
   cell {
     x: 12
@@ -142,6 +97,7 @@ layers {
     tile: 7
     h_flip: 0
     v_flip: 0
+    rotate90: 0
   }
   cell {
     x: 13
@@ -149,6 +105,7 @@ layers {
     tile: 8
     h_flip: 0
     v_flip: 0
+    rotate90: 0
   }
   cell {
     x: 14
@@ -156,6 +113,7 @@ layers {
     tile: 9
     h_flip: 0
     v_flip: 0
+    rotate90: 0
   }
   cell {
     x: 15
@@ -163,6 +121,7 @@ layers {
     tile: 10
     h_flip: 0
     v_flip: 0
+    rotate90: 0
   }
   cell {
     x: 16
@@ -170,6 +129,7 @@ layers {
     tile: 11
     h_flip: 0
     v_flip: 0
+    rotate90: 0
   }
   cell {
     x: 21
@@ -177,6 +137,7 @@ layers {
     tile: 4
     h_flip: 0
     v_flip: 0
+    rotate90: 0
   }
   cell {
     x: 22
@@ -184,6 +145,7 @@ layers {
     tile: 5
     h_flip: 0
     v_flip: 0
+    rotate90: 0
   }
   cell {
     x: 23
@@ -191,6 +153,7 @@ layers {
     tile: 6
     h_flip: 0
     v_flip: 0
+    rotate90: 0
   }
   cell {
     x: 24
@@ -198,6 +161,7 @@ layers {
     tile: 7
     h_flip: 0
     v_flip: 0
+    rotate90: 0
   }
   cell {
     x: 25
@@ -205,6 +169,7 @@ layers {
     tile: 8
     h_flip: 0
     v_flip: 0
+    rotate90: 0
   }
   cell {
     x: 26
@@ -212,6 +177,7 @@ layers {
     tile: 9
     h_flip: 0
     v_flip: 0
+    rotate90: 0
   }
   cell {
     x: 27
@@ -219,6 +185,7 @@ layers {
     tile: 10
     h_flip: 0
     v_flip: 0
+    rotate90: 0
   }
   cell {
     x: 28
@@ -226,6 +193,71 @@ layers {
     tile: 11
     h_flip: 0
     v_flip: 0
+    rotate90: 0
+  }
+  cell {
+    x: -11
+    y: 0
+    tile: 4
+    h_flip: 0
+    v_flip: 0
+    rotate90: 0
+  }
+  cell {
+    x: -10
+    y: 0
+    tile: 5
+    h_flip: 0
+    v_flip: 0
+    rotate90: 0
+  }
+  cell {
+    x: -9
+    y: 0
+    tile: 6
+    h_flip: 0
+    v_flip: 0
+    rotate90: 0
+  }
+  cell {
+    x: -8
+    y: 0
+    tile: 7
+    h_flip: 0
+    v_flip: 0
+    rotate90: 0
+  }
+  cell {
+    x: -7
+    y: 0
+    tile: 8
+    h_flip: 0
+    v_flip: 0
+    rotate90: 0
+  }
+  cell {
+    x: -6
+    y: 0
+    tile: 9
+    h_flip: 0
+    v_flip: 0
+    rotate90: 0
+  }
+  cell {
+    x: -5
+    y: 0
+    tile: 10
+    h_flip: 0
+    v_flip: 0
+    rotate90: 0
+  }
+  cell {
+    x: -4
+    y: 0
+    tile: 11
+    h_flip: 0
+    v_flip: 0
+    rotate90: 0
   }
 }
 material: "/builtins/materials/tile_map.material"
