@@ -1,6 +1,6 @@
 [project]
 title = Ocean Commotion
-version = 0.1
+version = 0.3
 
 [bootstrap]
 main_collection = /main/main.collectionc

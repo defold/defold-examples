@@ -1,6 +1,6 @@
 [project]
 title = Defold examples
-version = 0.1
+version = 0.3
 dependencies = 
 
 [bootstrap]
@@ -32,4 +32,7 @@ max_count = 1024
 
 [library]
 include_dirs = 
+
+[graphics]
+texture_profiles = /default.texture_profiles
 
