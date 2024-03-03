@@ -33,6 +33,3 @@ max_count = 1024
 [library]
 include_dirs = 
 
-[graphics]
-texture_profiles = /default.texture_profiles
-
