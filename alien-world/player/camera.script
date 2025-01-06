@@ -1,6 +1,4 @@
 function init(self)
-    msg.post(".", "acquire_camera_focus")
-    
     go.animate(".", "position.x", go.PLAYBACK_LOOP_PINGPONG, 800, go.EASING_INOUTQUAD, 20) 
 end
 

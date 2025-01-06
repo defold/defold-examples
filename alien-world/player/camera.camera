@@ -1,4 +1,5 @@
 aspect_ratio: 1.0
 fov: 0.85
-near_z: 0.1
-far_z: 1000.0
+near_z: -10.0
+far_z: 10.0
+orthographic_projection: 1

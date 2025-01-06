@@ -3,20 +3,8 @@ instances {
   id: "camera"
   prototype: "/player/camera.go"
   position {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
+    x: 576.0
+    y: 120.0
   }
 }
 collection_instances {
@@ -27,17 +15,6 @@ collection_instances {
     y: 170.80273
     z: -0.5
   }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
 }
 collection_instances {
   id: "frog1"
@@ -45,18 +22,6 @@ collection_instances {
   position {
     x: 955.5125
     y: 30.21723
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
   }
 }
 collection_instances {
@@ -65,18 +30,6 @@ collection_instances {
   position {
     x: 991.65186
     y: 30.21723
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
   }
 }
 collection_instances {
@@ -85,38 +38,13 @@ collection_instances {
   position {
     x: 1828.8855
     y: 94.94708
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
   }
 }
 collection_instances {
   id: "level"
   collection: "/level/level.collection"
   position {
-    x: 0.0
     y: 1.4072367
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
   }
 }
 collection_instances {
@@ -125,18 +53,6 @@ collection_instances {
   position {
     x: 1183.5339
     y: 94.663506
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
   }
 }
 collection_instances {
@@ -145,18 +61,6 @@ collection_instances {
   position {
     x: 744.65106
     y: 61.560272
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
   }
 }
 collection_instances {
@@ -167,17 +71,6 @@ collection_instances {
     y: 78.24067
     z: -0.5
   }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
-  }
 }
 collection_instances {
   id: "warrior"
@@ -185,18 +78,6 @@ collection_instances {
   position {
     x: 1409.3611
     y: 94.6127
-    z: 0.0
-  }
-  rotation {
-    x: 0.0
-    y: 0.0
-    z: 0.0
-    w: 1.0
-  }
-  scale3 {
-    x: 1.0
-    y: 1.0
-    z: 1.0
   }
 }
 scale_along_z: 0
