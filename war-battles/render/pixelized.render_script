@@ -5,10 +5,10 @@ function init(self)
     self.particle_pred = render.predicate({"particle"})
 
     self.clear_color = vmath.vector4(0, 0, 0, 0)
-    self.clear_color.x = sys.get_config("render.clear_color_red", 0)
-    self.clear_color.y = sys.get_config("render.clear_color_green", 0)
-    self.clear_color.z = sys.get_config("render.clear_color_blue", 0)
-    self.clear_color.w = sys.get_config("render.clear_color_alpha", 0)
+    self.clear_color.x = sys.get_config_number("render.clear_color_red", 0)
+    self.clear_color.y = sys.get_config_number("render.clear_color_green", 0)
+    self.clear_color.z = sys.get_config_number("render.clear_color_blue", 0)
+    self.clear_color.w = sys.get_config_number("render.clear_color_alpha", 0)
 
     self.view = vmath.matrix4()
 end

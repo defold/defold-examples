@@ -14,10 +14,10 @@ function init(self)
 	-- Fetch user-set clear color from the game.project
 	-- settings file if it exists. Note that the settings file can
 	-- contain custom settings like this one to use if you like.
-    self.clear_color.x = sys.get_config("render.clear_color_red", 0)
-    self.clear_color.y = sys.get_config("render.clear_color_green", 0)
-    self.clear_color.z = sys.get_config("render.clear_color_blue", 0)
-    self.clear_color.w = sys.get_config("render.clear_color_alpha", 0)
+    self.clear_color.x = sys.get_config_number("render.clear_color_red", 0)
+    self.clear_color.y = sys.get_config_number("render.clear_color_green", 0)
+    self.clear_color.z = sys.get_config_number("render.clear_color_blue", 0)
+    self.clear_color.w = sys.get_config_number("render.clear_color_alpha", 0)
 
 	-- Define a view matrix to use. If we have a camera object, it will
 	-- send "set_view_projection" messages to the render script and we
