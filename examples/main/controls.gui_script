@@ -84,7 +84,7 @@ function on_input(self, action_id, action)
 			-- Search list for nodes to test against.
 			if gui.pick_node(gui.get_node(button), x, y) then
 				-- ignore "a" and "b" repeats
-			    if (button == "a" or button == "b" or button == "back") and not action.pressed then
+				if (button == "a" or button == "b" or button == "back") and not action.pressed then
 					return
 				end
 
@@ -100,7 +100,7 @@ function on_input(self, action_id, action)
 	for i, a in ipairs(self.actions) do
 		if action_id == a and self.controls_receiver ~= nil then
 			-- ignore "a" and "b" repeats
-		    if (action_id == hash("a") or action_id == hash("b")) and not action.pressed then
+			if (action_id == hash("a") or action_id == hash("b")) and not action.pressed then
 				return
 			end
 			msg.post(self.controls_receiver, a)

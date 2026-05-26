@@ -90,12 +90,15 @@ function on_message(self, message_id, message, sender)
 			msg.post("#sprite-eyes", "disable")
 			go.cancel_animations("#", "blink")
 			c = "fish-" .. c .. "-w"
+			e = nil
 		elseif message.type == type_bomb then
 			e = "eyes-starfish"
 			c = "fish-starfish"
 		end
 		msg.post("#sprite", "play_animation", { id = hash(c) })
-		msg.post("#sprite-eyes", "play_animation", { id = hash(e) })
+		if e then
+			msg.post("#sprite-eyes", "play_animation", { id = hash(e) })
+		end
 	elseif message_id == hash("sway") then
 		local rot = go.get(".", "euler.z")
 		go.set(".", "euler.z", rot - 1)

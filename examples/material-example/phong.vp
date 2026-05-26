@@ -1,19 +1,24 @@
-uniform mediump mat4 view_proj;
-uniform mediump mat4 modelview;
-uniform mediump mat4 normalMat;
+#version 140
 
-attribute mediump vec3 position;
-attribute mediump vec3 normal;
-attribute mediump vec2 texcoord0;
+uniform vs_uniforms {
+    mediump mat4 view_proj;
+    mediump mat4 modelview;
+    mediump mat4 normalMat;
+};
 
-varying mediump vec2 var_texcoord0;
-varying mediump vec3 var_position;
-varying mediump vec3 var_normal;
+in mediump vec3 position;
+in mediump vec3 normal;
+in mediump vec2 texcoord0;
 
-void main(){
-	gl_Position = view_proj * vec4(position.xyz, 1.0);
+out mediump vec2 var_texcoord0;
+out mediump vec3 var_position;
+out mediump vec3 var_normal;
 
- 	vec4 vertPos4 = modelview * vec4(position, 1.0);
+void main()
+{
+    gl_Position = view_proj * vec4(position.xyz, 1.0);
+
+    vec4 vertPos4 = modelview * vec4(position, 1.0);
     var_position = vec3(vertPos4) / vertPos4.w;
     var_normal = vec3(normalMat * vec4(normal, 0.0));
     var_texcoord0 = texcoord0;

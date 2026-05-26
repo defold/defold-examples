@@ -6,7 +6,7 @@ function update(self, dt)
 	if math.random() > 0.8 and self.c < 150 then
 		local x = math.random(2000)
 		local y = math.random(1000) + 3000
-	
+
 		factory.create("#blockfactory" .. math.random(4), vmath.vector3(x, y, 0))
 		self.c = self.c + 1
 	end

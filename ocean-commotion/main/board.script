@@ -71,7 +71,7 @@ local function build_board()
 			pos.y = bottom_edge + blocksize / 2 + blocksize * y
 			local color = colors[math.random(#colors)]	-- Pick a random color
 			local type = type_plain
-			local id = factory.create("#fish_factory", pos, null, { color = color })
+			local id = factory.create("#fish_factory", pos, nil, { color = color })
 			board[x][y] = { id = id, x = x, y = y, color = color, type = type }
 		end
 	end	
@@ -121,7 +121,7 @@ local function collapse_board(board, callback)
 			end
 		end
 	end
-	
+
 	go.animate("#", "timer", go.PLAYBACK_ONCE_FORWARD, 1, go.EASING_LINEAR, duration, 0, callback)	
 end
 
@@ -133,8 +133,8 @@ local function swap_slots(board, slot1, slot2, callback)
 	--
 	-- Switch/animate the physical position of the fishes on the board
 	--	
-	pos1 = go.get_position(slot1.id)
-	pos2 = go.get_position(slot2.id)	
+	local pos1 = go.get_position(slot1.id)
+	local pos2 = go.get_position(slot2.id)	
 	go.animate(slot1.id, "position", go.PLAYBACK_ONCE_FORWARD, pos2, go.EASING_INOUTSINE, duration)
 	go.animate(slot2.id, "position", go.PLAYBACK_ONCE_FORWARD, pos1, go.EASING_INOUTSINE, duration, 0, callback)
 
@@ -203,9 +203,9 @@ local function vertical_neighbors(board, x, y)
 	if not board[x][y] or not board[x][y].color then
 		return neighbors
 	end
-	
+
 	local color = board[x][y].color
-	
+
 	-- 
 	-- Search from slot down to the edge
 	--		
@@ -220,7 +220,7 @@ local function vertical_neighbors(board, x, y)
 			break
 		end
 	end
-	
+
 	-- 
 	-- Search from slot up to the edge
 	--		
@@ -248,7 +248,7 @@ local function iterate_fishes(board)
 			if x == boardwidth - 1 and y == boardheight then
 				return nil
 			end
-			
+
 			if y == boardheight then
 				y = 0
 				x = x + 1
@@ -288,7 +288,7 @@ local function remove_fish(board, fish)
 		-- other special fish effect takes place at the same time
 		return
 	end
-	
+
 	msg.post(fish.id, "remove")
 	--
 	-- Empty slots are set to nil so we can find them
@@ -363,7 +363,7 @@ end
 --
 local function remove_matches(board, callback)
 	local duration = 0.3
-	
+
 	-- handle t, l and cross shaped fish formations in a first pass
 	for fish in iterate_fishes(board) do
 		if #fish.neighbors_horisontal >= 2 and #fish.neighbors_vertical >= 2 then
@@ -385,7 +385,7 @@ local function remove_matches(board, callback)
 			remove_fish(board, fish)
 			remove_fishes(board, fish.neighbors_horisontal)
 		end
-		
+
 		if #fish.neighbors_vertical >= 4 then
 			remove_fishes(board, fish.neighbors_vertical)
 			respawn(fish, type_bomb, nil)
@@ -397,7 +397,7 @@ local function remove_matches(board, callback)
 			remove_fishes(board, fish.neighbors_vertical)
 		end
 	end
-	
+
 	go.animate("#", "timer", go.PLAYBACK_ONCE_FORWARD, 1, go.EASING_LINEAR, duration, 0, callback)
 end
 
@@ -448,7 +448,7 @@ local function fill_slots(board, empty_slots, callback)
 		--
 		-- Create a new fish game object
 		--
-		local id = factory.create("#fish_factory", pos, null, { color = color })
+		local id = factory.create("#fish_factory", pos, nil, { color = color })
 		--
 		-- Animate into the slot's calculated y position
 		--
@@ -468,7 +468,7 @@ local function reaction(self)
 	-- Mark all matches on the board
 	--
 	mark_matches(self.board)
-	
+
 	--
 	-- Remove all matches from the board
 	--
@@ -598,7 +598,7 @@ function on_message(self, message_id, message, sender)
 			-- Find empty slots
 			--
 			local s = empty_slots(self.board)
-			
+
 			--
 			-- If there are empty slots, fill them.
 			--
@@ -625,14 +625,14 @@ function on_input(self, action_id, action)
 		--
 		local x = math.floor((action.x - edge) / blocksize)
 		local y = math.floor((action.y - edge) / blocksize)
-		
+
 		if x < 0 or x >= boardwidth or y < 0 or y >= boardheight or self.board[x][y] == nil then
 			--
 			-- Input is outside board
 			--
 			return
 		end
-		
+
 		if action.pressed then
 			--
 			-- Mark the first slot
@@ -646,7 +646,7 @@ function on_input(self, action_id, action)
 			--
 			local beside = math.abs(self.mark_1.x - x)
 			local above = math.abs(self.mark_1.y - y)
-			
+
 			if beside == 1 and above == 0 or above == 1 and beside == 0 then
 				self.mark_2 = self.board[x][y]
 				msg.post(self.mark_2.id, "zoom_and_wobble")
@@ -657,18 +657,18 @@ function on_input(self, action_id, action)
 		-- Player released touch
 		--
 		self.dragging = false
-		
+
 		--
 		-- Reset animations on the marked fishes
 		--		
 		if self.mark_1 then
 			msg.post(self.mark_1.id, "reset")
 		end
-		
+
 		if self.mark_2 then
 			msg.post(self.mark_2.id, "reset")
 		end
-		
+
 		--
 		-- If there are two marked slots, initiate a swap!
 		--
@@ -679,7 +679,7 @@ function on_input(self, action_id, action)
 			--
 			self.mark_1 = nil
 			self.mark_2 = nil
-		end		
+		end
 	end
 end
 

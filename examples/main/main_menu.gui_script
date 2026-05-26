@@ -10,16 +10,16 @@ function init(self)
 end
 
 function on_message(self, message_id, message, sender)
-    if message_id == hash("load_example") then
-	   	local proxy = message.proxy
-    	msg.post(proxy, "load")
-    elseif message_id == hash("proxy_loaded") then
-        -- The collection has loaded and it's time to enable it.
-        msg.post(sender, "enable")
+	if message_id == hash("load_example") then
+		local proxy = message.proxy
+		msg.post(proxy, "load")
+	elseif message_id == hash("proxy_loaded") then
+		-- The collection has loaded and it's time to enable it.
+		msg.post(sender, "enable")
 		self.pushed_button = nil		
 		-- Let the loaded collection take over.
-    	msg.post("#", "release_input_focus")
-    	-- Disable the main menu.
+		msg.post("#", "release_input_focus")
+		-- Disable the main menu.
 		msg.post("main_menu", "disable")
 
 		-- On-screen controls on
@@ -37,15 +37,15 @@ function on_message(self, message_id, message, sender)
 		msg.post("@render:", "no_camera")
 		msg.post("@render:", "set_render_update", { update = hash("2d") })
 		
-    	-- Enable the main menu.
+		-- Enable the main menu.
 		msg.post("main_menu", "enable")
 
 		-- On-screen controls off
 		msg.post("main:/controls#gui", "off")
 
 		-- Take back input.
-    	msg.post("#", "acquire_input_focus")
-    end
+		msg.post("#", "acquire_input_focus")
+	end
 end
 
 function on_input(self, action_id, action)

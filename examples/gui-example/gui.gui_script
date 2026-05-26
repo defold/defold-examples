@@ -14,7 +14,7 @@ function init(self)
 
 	-- Font animation
 	local dfont = gui.get_node("distancefield")
-	local bfont = gui.get_node("bitmap")	
+	local bfont = gui.get_node("bitmap")
 	local scale = 10
 	gui.animate(dfont, "scale", vmath.vector3(scale, scale, 0), gui.EASING_INOUTQUART, 8, 0, nil, gui.PLAYBACK_LOOP_PINGPONG)
 	gui.animate(bfont, "scale", vmath.vector3(scale, scale, 0), gui.EASING_INOUTQUART, 8, 0, nil, gui.PLAYBACK_LOOP_PINGPONG)
@@ -27,7 +27,7 @@ function init(self)
 	-- Pie node
 	local pie = gui.get_node("pie")
 	gui.animate(pie, "fill_angle", 0, gui.EASING_LINEAR, 3, 0, nil, gui.PLAYBACK_LOOP_FORWARD)
-	gui.animate(pie, "rotation.z", 360, gui.EASING_LINEAR, 3, 0, nil, gui.PLAYBACK_LOOP_PINGPONG)
+	gui.animate(pie, "euler.z", 360, gui.EASING_LINEAR, 3, 0, nil, gui.PLAYBACK_LOOP_PINGPONG)
 	gui.animate(pie, "inner_radius", 75, gui.EASING_INOUTSINE, 2, 0, nil, gui.PLAYBACK_LOOP_PINGPONG)
 
 	-- Stenciled/masked cloud

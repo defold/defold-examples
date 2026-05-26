@@ -40,12 +40,12 @@ function on_message(self, message_id, message, sender)
 			local scale = 0.4 + (0.03 * i)
 			-- Spawn an astronaut
 			local a = collectionfactory.create("#factory", pos, rot, {}, scale)
-	        -- Child it under planet
-            msg.post(a[hash("/astronaut")], "set_parent", { parent_id = go.get_id() })
-            -- Store the astronaut's root object for easy access.
-            table.insert(self.astronauts, a[hash("/astronaut")])
-            -- Store everything we've spawned so we can delete it.
-            table.insert(self.all_spawned, a)
+			-- Child it under planet
+			msg.post(a[hash("/astronaut")], "set_parent", { parent_id = go.get_id() })
+			-- Store the astronaut's root object for easy access.
+			table.insert(self.astronauts, a[hash("/astronaut")])
+			-- Store everything we've spawned so we can delete it.
+			table.insert(self.all_spawned, a)
 		end
 	elseif message_id == hash("set_tint") then
 		for i, a in pairs(self.astronauts) do
@@ -53,11 +53,11 @@ function on_message(self, message_id, message, sender)
 			local u = msg.url()
 			u.path = a
 			u.fragment = hash("sprite")
-			sprite.set_constant(u, "tint", message.tint)
+			go.set(u, "tint", message.tint)
 		end		
 	elseif message_id == hash("delete_all") then
 		for i, s in pairs(self.all_spawned) do
-			go.delete_all(s)
+			go.delete(s)
 		end
 	end
 end
