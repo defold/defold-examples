@@ -5,3 +5,6 @@
 /ocean-commotion/build/
 alien-world/.editor_settings
 war-battles/.editor_settings
+.internal/
+.DS_Store
+.editor_settings

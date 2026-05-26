@@ -6,7 +6,7 @@ local max_steer_angle_right = vmath.quat_rotation_z(-math.pi / 6)   -- -30 degre
 local wheels_vector = vmath.vector3(0, 11, 0)               -- Vector from center of back and front wheel pairs
 
 function init(self)
-	-- Tell input controls to direct messages here
+    -- Tell input controls to direct messages here
     msg.post("main:/controls#gui", "aquire_controls")
 
     -- Keep track of how we're steering and our direction
@@ -17,18 +17,18 @@ function init(self)
     self.velocity = vmath.vector3()
     self.acceleration = vmath.vector3()
 
-	-- Store current position and set target pos to the same since wanna start
-	-- at a stand-still.
-	self.pos = go.get_world_position()
-	self.target = self.pos
+    -- Store current position and set target pos to the same since wanna start
+    -- at a stand-still.
+    self.pos = go.get_world_position()
+    self.target = self.pos
 end
 
 function update(self, dt)
     -- Calculate new velocity based on current acceleration
-	-- Only Y component of the vectors is used
-	local new_velocity = self.velocity.y + self.acceleration.y * dt
-	self.velocity.y = math.max(-max_velocity, math.min(new_velocity, max_velocity))
-	
+    -- Only Y component of the vectors is used
+    local new_velocity = self.velocity.y + self.acceleration.y * dt
+    self.velocity.y = math.max(-max_velocity, math.min(new_velocity, max_velocity))
+    
     -- Calculate the new positions of front and back wheels
     local front_vel = vmath.rotate(self.steer_angle, self.velocity)
     local new_front_pos = vmath.rotate(self.direction, wheels_vector + front_vel)
@@ -43,8 +43,8 @@ function update(self, dt)
     pos = pos + vmath.rotate(self.direction, self.velocity)
     go.set_position(pos)
 
-	-- Send our position to the camera so it can chase.
-	msg.post("/camera", "look_at", { position = pos })
+    -- Send our position to the camera so it can chase.
+    msg.post("/camera", "look_at", { position = pos })
 
     -- Set the game object's rotation to the direction
     go.set_rotation(self.direction)

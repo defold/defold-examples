@@ -33,7 +33,7 @@ function init(self)
 							{ anim = "se", dir = vmath.vector3(1, -1, 0) }, 
 							{ anim = "e", dir = vmath.vector3(1, 0, 0) }, 
 							{ anim = "ne", dir = vmath.vector3(1, 1, 0) }, 
-						 	{ anim = "n", dir = vmath.vector3(0, 1, 0) }, 
+							{ anim = "n", dir = vmath.vector3(0, 1, 0) }, 
 							{ anim = "nw", dir = vmath.vector3(-1, 1, 0) },
 							{ anim = "w", dir = vmath.vector3(-1, 0, 0) }, 
 							{ anim = "nw", dir = vmath.vector3(-1, 1, 0) } }
@@ -62,23 +62,23 @@ end
 function update(self, dt)
 	local p = self.patterns[self.patternindex]
 
+	local pos
 	local velocity = p.dir * self.speed * dt
 	for _, unit in ipairs(self.units) do
 		pos = go.get_position(unit)
-    	go.set_position(pos + velocity, unit)
-    	if self.t == 0 then
-    		local url = msg.url(nil, unit, "sprite")
-    		msg.post(url, "play_animation", { id = hash(self.unitname .. "-" .. p.anim) })
-    	end
-    end
+		go.set_position(pos + velocity, unit)
+		if self.t == 0 then
+			local url = msg.url(nil, unit, "sprite")
+			msg.post(url, "play_animation", { id = hash(self.unitname .. "-" .. p.anim) })
+		end
+	end
 
-    self.t = self.t + dt
-    if self.t > self.turntime then
-    	self.patternindex = self.patternindex + 1
-    	if self.patternindex > #self.patterns then
-    		self.patternindex = 1
-    	end
-    	self.t = 0
-    end
-
+	self.t = self.t + dt
+	if self.t > self.turntime then
+		self.patternindex = self.patternindex + 1
+		if self.patternindex > #self.patterns then
+			self.patternindex = 1
+		end
+		self.t = 0
+	end
 end
